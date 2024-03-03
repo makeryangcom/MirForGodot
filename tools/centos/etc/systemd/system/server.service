@@ -1,0 +1,12 @@
+[Unit]
+Description=Server
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/data/wwwroot/server/
+ExecStart=/data/wwwroot/server/main
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+{
+    "$schema": "https://wails.io/schemas/config.v2.json",
+    "name": "desktop",
+    "outputfilename": "desktop",
+    "build:dir": "release",
+    "wailsjsdir": "template/src/package",
+    "frontend:dir": "template",
+    "frontend:install": "yarn",
+    "frontend:build": "yarn build",
+    "frontend:dev:watcher": "yarn dev",
+    "frontend:dev:serverUrl": "auto",
+    "devServer": "localhost:10090",
+    "author": {
+        "name": "MakerYang",
+        "email": "admin@wileho.com"
+    },
+    "info": {
+        "companyName": "MakerYang",
+        "productName": "Desktop",
+        "productVersion": "1.0.0",
+        "copyright": "Copyright © 2019-2022 MakerYang All Rights Reserved",
+        "comments": "MakerYang (https://www.makeryang.com)"
+    }
+}

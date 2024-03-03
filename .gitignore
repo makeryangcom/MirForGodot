@@ -1,0 +1,17 @@
+.idea
+.DS*
+.git
+.vscode
+.godot
+*.cfg
+*.tmp
+desktop/release
+!desktop/release/appicon.png
+desktop/template/yarn.lock
+desktop/template/yarn-error.log
+desktop/template/node_modules
+desktop/template/dist
+engine/release
+engine/runtime
+!engine/release/.gitkeep
+!engine/runtime/.gitkeep
