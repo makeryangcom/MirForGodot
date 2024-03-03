@@ -29,6 +29,7 @@ func _ready() -> void:
 	else:
 		print("[客户端模式]")
 		data["mode"] = "client"
+		Request.on_server_ping()
 		var error = Client.create_client()
 		if error != OK:
 			printerr("[服务器连接失败]")
