@@ -4,6 +4,7 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
+User=root
 Environment=GODOT_SILENCE_ROOT_WARNING=1
 WorkingDirectory=/data/wwwroot/game/
 ExecStart=/data/wwwroot/game/server.x86_64 --headless
