@@ -28,3 +28,16 @@ func on_server(path: String, method: int, parameter, callback) -> void:
 	http_request.request_completed.connect(callback)
 	http_callback = callback
 	http_request.request("https://" + Global.get_server_address() + path, data["headers"], method, parameter_json)
+
+# 测试服务器接口
+func on_server_ping() -> void:
+	on_server("/ping", HTTPClient.METHOD_GET, {}, func(_result, code, _headers, body):
+		if code == 200:
+			var response = JSON.parse_string(body.get_string_from_utf8())
+			if response["code"] == 0:
+				print("[服务器接口:/ping]", JSON.stringify(response))
+			else:
+				printerr("[服务器接口:/ping]", "服务器接口通讯失败")
+		else:
+			printerr("[服务器接口:/ping]", "服务器接口通讯失败")
+	)
