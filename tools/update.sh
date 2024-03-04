@@ -23,5 +23,7 @@ sudo systemctl restart nginx.service
 
 # 重启后端服务和游戏服务
 sudo systemctl daemon-reload
+sudo systemctl enable server.service
 sudo systemctl restart server.service
+sudo systemctl enable game.service
 sudo systemctl restart game.service
