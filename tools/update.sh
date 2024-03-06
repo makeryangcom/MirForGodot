@@ -6,6 +6,7 @@ set -e
 sudo cp -r ./tools/centos/* /
 
 # 复制后端服务到运行目录
+sudo rm -rf /data/wwwroot/server
 sudo cp -r ./server /data/wwwroot/
 
 # 创建游戏引擎服务端运行目录

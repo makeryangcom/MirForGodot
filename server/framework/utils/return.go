@@ -1,9 +1,19 @@
+/**
+#*****************************************************************************
+# @file    return.go
+# @author  MakerYang(https://www.makeryang.com)
+# @statement 免费课程配套开源项目，任何形式收费均为盗版
+#*****************************************************************************
+*/
+
 package Utils
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
+	"math"
 	"net/http"
 	"os"
 	"strconv"
@@ -11,95 +21,112 @@ import (
 )
 
 type logData struct {
-	Timestamp       int64  `json:"timestamp"`
-	TimestampFormat string `json:"timestamp_format"`
-	ClientMethod    string `json:"client_method"`
-	ClientIp        string `json:"client_ip"`
-	ClientParameter string `json:"client_parameter"`
-	ServerParameter string `json:"server_parameter"`
-	ServerUrl       string `json:"server_url"`
-	ServerName      string `json:"server_name"`
-	ServerYear      string `json:"server_year"`
-	ServerMonth     string `json:"server_month"`
-	ServerDay       string `json:"server_day"`
-	ServerTime      string `json:"server_time"`
-	TimeLength      string `json:"time_length"`
+	ClientIp        string          `json:"client_ip"`
+	ClientMethod    string          `json:"client_method"`
+	ClientUrl       string          `json:"client_url"`
+	ClientSign      string          `json:"client_sign"`
+	ClientToken     string          `json:"client_token"`
+	ClientReferer   string          `json:"client_referer"`
+	ClientParameter clientParameter `json:"client_parameter"`
+	ServerParameter string          `json:"server_parameter"`
+	Date            string          `json:"date"`
+	Time            int64           `json:"time"`
+	Server          string          `json:"server"`
+	Length          string          `json:"length"`
 }
 
-func recordLog(c *gin.Context, serverParameter string) {
+type clientParameter struct {
+	Get  interface{} `json:"get"`
+	Post interface{} `json:"post"`
+}
+
+func requestLog(c *gin.Context, serverParameter string) {
+
 	data := &logData{}
-	data.Timestamp = time.Now().Unix()
-	data.TimestampFormat = time.Now().Format("2006-01-02 15:04:05")
+	data.Time = time.Now().Unix()
+	data.Date = time.Now().Format("2006-01-02 15:04:05")
 	data.ClientMethod = c.Request.Method
 	data.ClientIp = c.ClientIP()
+	data.ClientSign = c.Request.Header.Get("Client-Sign")
+	data.ClientToken = c.Request.Header.Get("Client-Token")
+	data.ClientReferer = c.Request.Header.Get("Client-Referer")
 	if data.ClientMethod == "GET" {
-		data.ClientParameter = c.Request.RequestURI
+		data.ClientParameter.Get = c.Request.URL.Query()
 	}
 	if data.ClientMethod == "POST" {
-		clientParam, err := json.Marshal(c.Request.PostForm)
-		if err != nil {
-			data.ClientParameter = ""
-		}
-		if err == nil {
-			data.ClientParameter = string(clientParam)
-		}
+		data.ClientParameter.Post = c.Request.PostForm
 	}
 	scheme := "http://"
 	if c.Request.TLS != nil {
 		scheme = "https://"
 	}
 	serverUrl := scheme + c.Request.Host + c.Request.URL.Path
+	data.ClientUrl = serverUrl
 	serverName, _ := os.Hostname()
-	data.ServerUrl = serverUrl
-	data.ServerName = serverName
-	data.ClientParameter = c.GetString("client_parameter")
+	data.Server = serverName
 	data.ServerParameter = serverParameter
-	data.ServerYear = time.Now().Format("2006")
-	data.ServerMonth = time.Now().Format("01")
-	data.ServerDay = time.Now().Format("02")
-	data.ServerTime = time.Now().Format("15:04:05")
-	data.TimeLength = strconv.FormatFloat(float64(time.Now().UnixNano())/1000000-c.GetFloat64("start_time"), 'f', 2, 64)
+
+	clientTimeStr := c.Request.Header.Get("Client-Time")
+	if clientTimeStr != "" {
+		clientTimeMs, _ := strconv.ParseInt(clientTimeStr, 10, 64)
+		serverTimeMs := time.Now().UnixNano() / 1e6
+		processingTimeMs := serverTimeMs - clientTimeMs
+		data.Length = fmt.Sprintf("%.3f", math.Abs(float64(processingTimeMs)/1000.0))
+	}
+
 	dataString, _ := json.Marshal(data)
 
-	log.Println("[Log]", string(dataString))
+	log.Println("[request]", string(dataString))
 }
 
 func Success(c *gin.Context, data interface{}) {
+
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
 		"msg":  "success",
 		"data": data,
 	})
+
 	logJson, _ := json.Marshal(gin.H{"code": 0, "msg": "success", "data": data})
-	recordLog(c, string(logJson))
+
+	requestLog(c, string(logJson))
 }
 
 func Error(c *gin.Context, data interface{}) {
+
 	c.JSON(http.StatusOK, gin.H{
 		"code": 10000,
 		"msg":  "error",
 		"data": data,
 	})
+
 	logJson, _ := json.Marshal(gin.H{"code": 10000, "msg": "error", "data": data})
-	recordLog(c, string(logJson))
+
+	requestLog(c, string(logJson))
 }
 
 func Warning(c *gin.Context, code int, msg string, data interface{}) {
+
 	c.JSON(http.StatusOK, gin.H{
 		"code": code,
 		"msg":  msg,
 		"data": data,
 	})
+
 	logJson, _ := json.Marshal(gin.H{"code": code, "msg": msg, "data": data})
-	recordLog(c, string(logJson))
+
+	requestLog(c, string(logJson))
 }
 
 func AuthError(c *gin.Context, code int, msg string, data interface{}) {
+
 	c.JSON(http.StatusUnauthorized, gin.H{
 		"code": code,
 		"msg":  msg,
 		"data": data,
 	})
+
 	logJson, _ := json.Marshal(gin.H{"code": code, "msg": msg, "data": data})
-	recordLog(c, string(logJson))
+
+	requestLog(c, string(logJson))
 }

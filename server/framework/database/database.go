@@ -1,9 +1,10 @@
 /**
- ******************************************************************************
- * @file    database.go
- * @author  MakerYang
- ******************************************************************************
- */
+#*****************************************************************************
+# @file    database.go
+# @author  MakerYang(https://www.makeryang.com)
+# @statement 免费课程配套开源项目，任何形式收费均为盗版
+#*****************************************************************************
+*/
 
 package Database
 
@@ -17,14 +18,17 @@ import (
 	"time"
 )
 
+// Get 定义数据库模块的调用指针
 var Get *gorm.DB
 
+// DefaultField 声明数据库默认字段
 type DefaultField struct {
 	CreateAt int `gorm:"Column:create_at" json:"create_at"`
 	UpdateAt int `gorm:"Column:update_at" json:"update_at"`
 	DeleteAt int `gorm:"Column:delete_at" json:"delete_at"`
 }
 
+// Init 初始化数据库连接
 func Init() {
 
 	var err error

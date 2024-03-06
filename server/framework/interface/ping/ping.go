@@ -1,21 +1,21 @@
 /**
 #*****************************************************************************
-# @file    header.go
+# @file    ping.go
 # @author  MakerYang(https://www.makeryang.com)
 # @statement 免费课程配套开源项目，任何形式收费均为盗版
 #*****************************************************************************
 */
 
-package Utils
+package PingInterface
 
-import "strings"
+import (
+	"Game/framework/utils"
+	"github.com/gin-gonic/gin"
+)
 
-func CheckUserAgent(userAgent string) bool {
-	Status := false
+// Ping 健康检查接口
+func Ping(c *gin.Context) {
 
-	if strings.Contains(userAgent, "GodotEngine") {
-		Status = true
-	}
-
-	return Status
+	Utils.Success(c, Utils.Empty{})
+	return
 }

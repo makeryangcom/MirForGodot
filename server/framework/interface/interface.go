@@ -1,15 +1,16 @@
 /**
- ******************************************************************************
- * @file    controller.go
- * @author  MakerYang
- ******************************************************************************
- */
+#*****************************************************************************
+# @file    interface.go
+# @author  MakerYang(https://www.makeryang.com)
+# @statement 免费课程配套开源项目，任何形式收费均为盗版
+#*****************************************************************************
+*/
 
-package Controller
+package Interface
 
 import (
 	"Game/framework/config"
-	"Game/framework/controller/ping"
+	"Game/framework/interface/ping"
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -21,17 +22,22 @@ import (
 	"time"
 )
 
+// 接口路由
 func router() *gin.Engine {
+
 	router := gin.New()
 
 	gin.SetMode(Config.Get.Service.Mode)
 
-	router.GET("/ping", PingController.Ping)
+	// 健康检查接口
+	router.GET("/ping", PingInterface.Ping)
 
 	return router
 }
 
+// Init 接口初始化
 func Init() {
+
 	routers := router()
 
 	var HttpServer = &http.Server{

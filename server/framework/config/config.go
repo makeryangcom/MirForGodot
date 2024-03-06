@@ -1,22 +1,26 @@
 /**
- ******************************************************************************
- * @file    config.go
- * @author  MakerYang
- ******************************************************************************
- */
+#*****************************************************************************
+# @file    config.go
+# @author  MakerYang(https://www.makeryang.com)
+# @statement 免费课程配套开源项目，任何形式收费均为盗版
+#*****************************************************************************
+*/
 
 package Config
 
 import "time"
 
+// Get 定义系统配置模块的调用指针
 var Get = &config{}
 
+// 声明系统配置模块数据结构体
 type config struct {
 	Service  service  `json:"service"`
 	Database database `json:"database"`
 	Hash     hash     `json:"hash"`
 }
 
+// 声明系统配置模块的服务器配置数据结构体
 type service struct {
 	Mode         string        `json:"mode"`
 	HttpPort     int           `json:"http_port"`
@@ -24,6 +28,7 @@ type service struct {
 	WriteTimeout time.Duration `json:"write_timeout"`
 }
 
+// 声明系统配置模块的数据库配置数据结构体
 type database struct {
 	Type     string `json:"type"`
 	User     string `json:"user"`
@@ -32,11 +37,14 @@ type database struct {
 	Name     string `json:"name"`
 }
 
+// 声明系统配置模块的HASH加密配置数据结构体
 type hash struct {
 	Salt string `json:"salt"`
 }
 
+// Init 初始化系统配置
 func Init() {
+
 	Get.Service.Mode = "debug"
 	Get.Service.HttpPort = 7000
 	Get.Service.ReadTimeout = 60 * time.Second
