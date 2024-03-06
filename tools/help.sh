@@ -2,29 +2,37 @@
 
 set -e
 
-# 复制Nginx、服务配置配置
-sudo cp -r ./tools/centos/* /
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
 
-# 复制后端服务到运行目录
-sudo rm -rf /data/wwwroot/server
-sudo cp -r ./server /data/wwwroot/
+# shellcheck disable=SC2039
+echo -e "${BLUE}一些常用的命令脚本：${NC}"
 
-# 创建游戏引擎服务端运行目录
-if [ ! -d "/data/wwwroot/game" ]; then
-    mkdir -p /data/wwwroot/game
-fi
+echo -e "${GREEN}查看所有服务状态${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}sudo systemctl status server.service game.service${NC}"
 
-# 编译后端服务
-cd /data/wwwroot/server/
-/usr/local/go/bin/go env -w GOSUMDB=off
-export GO111MODULE=on && export GOPROXY=https://goproxy.io && /usr/local/go/bin/go build main.go
+# shellcheck disable=SC2039
+echo -e "${GREEN}重启后端服务${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}sudo systemctl restart server.service${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}重启游戏服务器${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}sudo systemctl restart game.service${NC}"
 
-# 重启Nginx服务
-sudo systemctl restart nginx.service
+# shellcheck disable=SC2039
+echo -e "${GREEN}监听后端服务实时日志${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}sudo journalctl -fu server.service${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}监听游戏服务器实时日志${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}sudo journalctl -fu game.service${NC}"
+# shellcheck disable=SC2039
 
-# 重启后端服务和游戏服务
-sudo systemctl daemon-reload
-sudo systemctl enable server.service
-sudo systemctl restart server.service
-sudo systemctl enable game.service
-sudo systemctl restart game.service
+echo -e "${GREEN}重启Nginx服务${NC}"
+# shellcheck disable=SC2039
+echo -e "${GREEN}sudo systemctl restart nginx.service${NC}"
+# shellcheck disable=SC2039
