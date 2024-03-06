@@ -2,29 +2,33 @@
 
 set -e
 
-# 复制Nginx、服务配置配置
-sudo cp -r ./tools/centos/* /
+# 更新系统并安装一些常用软件和依赖
+sudo yum update -y && sudo yum install -y vim curl git openssl openssl-devel
 
-# 复制后端服务到运行目录
-sudo rm -rf /data/wwwroot/server
-sudo cp -r ./server /data/wwwroot/
+# 安装Nginx(安装后启动、设置为开机自启动)
+yum install -y nginx
+sudo systemctl start nginx.service
+sudo systemctl enable nginx.service
 
-# 创建游戏引擎服务端运行目录
-if [ ! -d "/data/wwwroot/game" ]; then
-    mkdir -p /data/wwwroot/game
+# 设置防火墙规则并重启防火墙
+sudo firewall-cmd --zone=public --add-port=443/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=9000/udp --permanent
+sudo firewall-cmd --reload
+
+# 安装Golang编译环境
+if [ ! -d "/usr/local/go/bin/" ]; then
+    wget https://studygolang.com/dl/golang/go1.19.4.linux-amd64.tar.gz
+    tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz
+    sudo sh -c 'echo "export PATH=/usr/local/go/bin:$PATH" >> /etc/profile'
+    # shellcheck disable=SC2039
+    # shellcheck disable=SC1090
+    source /etc/profile && source ~/.bashrc
+    sudo rm -rf go1.19.4.linux-amd64.tar.gz
 fi
 
-# 编译后端服务
-cd /data/wwwroot/server/
-/usr/local/go/bin/go env -w GOSUMDB=off
-export GO111MODULE=on && export GOPROXY=https://goproxy.io && /usr/local/go/bin/go build main.go
-
-# 重启Nginx服务
-sudo systemctl restart nginx.service
-
-# 重启后端服务和游戏服务
-sudo systemctl daemon-reload
-sudo systemctl enable server.service
-sudo systemctl restart server.service
-sudo systemctl enable game.service
-sudo systemctl restart game.service
+# 安装Redis、MySQL数据库
+if [ ! -d "/data/mysql" ]; then
+    wget -c http://mirrors.oneinstack.com/oneinstack-full.tar.gz && tar xzf oneinstack-full.tar.gz && ./oneinstack/install.sh --db_option 2 --dbinstallmethod 1 --dbrootpwd 88888888 --redis
+    sudo rm -rf oneinstack-full.tar.gz
+    sudo rm -rf oneinstack*
+fi
