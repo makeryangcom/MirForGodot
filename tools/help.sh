@@ -8,7 +8,7 @@ BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
 
 # shellcheck disable=SC2039
-echo -e "${BLUE}一些常用的命令脚本：${NC}"
+echo -e "${YELLOW}一些常用的命令脚本：${NC}"
 
 echo -e "${GRAY}查看所有服务状态${NC}"
 # shellcheck disable=SC2039
