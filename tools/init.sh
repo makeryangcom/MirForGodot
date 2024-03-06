@@ -29,6 +29,5 @@ fi
 # 安装Redis、MySQL数据库
 if [ ! -d "/data/mysql" ]; then
     wget -c http://mirrors.oneinstack.com/oneinstack-full.tar.gz && tar xzf oneinstack-full.tar.gz && ./oneinstack/install.sh --db_option 2 --dbinstallmethod 1 --dbrootpwd 88888888 --redis
-    sudo rm -rf oneinstack-full.tar.gz
     sudo rm -rf oneinstack*
 fi
