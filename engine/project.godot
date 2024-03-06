@@ -19,10 +19,10 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-Global="*res://scripts/framework/global.gd"
-Server="*res://scripts/framework/server/server.gd"
-Client="*res://scripts/framework/client/client.gd"
-Request="*res://scripts/framework/utils/request.gd"
+Global="*res://scripts/base/global.gd"
+Server="*res://scripts/base/server/server.gd"
+Client="*res://scripts/base/client/client.gd"
+Request="*res://scripts/base/utils/request.gd"
 
 [display]
 

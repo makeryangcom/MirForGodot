@@ -19,6 +19,8 @@ var data = {
 }
 
 func _ready() -> void:
+	# 限制窗口最小尺寸
+	DisplayServer.window_set_min_size(Vector2(1280, 720))
 	# 服务器模式检测
 	if OS.has_feature("dedicated_server"):
 		print("[服务器模式]")
