@@ -5,12 +5,12 @@
 .godot
 *.cfg
 *.tmp
+!game/release/.gitkeep
+!game/export_presets.cfg
+!desktop/release/appicon.png
 desktop/release
 desktop/template/yarn.lock
 desktop/template/yarn-error.log
 desktop/template/node_modules
 desktop/template/dist
 game/release
-!game/release/.gitkeep
-!game/export_presets.cfg
-!desktop/release/appicon.png
