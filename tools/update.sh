@@ -14,6 +14,8 @@ if [ ! -d "/data/wwwroot/game" ]; then
     mkdir -p /data/wwwroot/game
 fi
 
+sudo chmod +x /data/wwwroot/game/*
+
 # 编译后端服务
 cd /data/wwwroot/server/
 /usr/local/go/bin/go env -w GOSUMDB=off
