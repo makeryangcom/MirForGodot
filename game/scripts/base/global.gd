@@ -53,7 +53,7 @@ func get_server_port() -> int:
 func get_server_ip() -> String:
 	return data["server"]["ip"]
 
-# 获取服务器端口
+# 获取服务器地址
 func get_server_address() -> String:
 	return data["server"]["address"]
 
