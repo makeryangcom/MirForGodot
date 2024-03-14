@@ -14,7 +14,10 @@ if [ ! -d "/data/wwwroot/game" ]; then
     mkdir -p /data/wwwroot/game
 fi
 
-sudo chmod +x /data/wwwroot/game/*
+# shellcheck disable=SC2012
+if [ "$(ls -A /data/wwwroot/game/ | wc -l)" -ne 0 ]; then
+  sudo chmod +x /data/wwwroot/game/*
+fi
 
 # 编译后端服务
 cd /data/wwwroot/server/
