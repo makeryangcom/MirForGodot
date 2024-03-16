@@ -10,6 +10,7 @@ package Interface
 
 import (
 	"Game/framework/config"
+	AccountInterface "Game/framework/interface/account"
 	"Game/framework/interface/ping"
 	"context"
 	"fmt"
@@ -31,6 +32,12 @@ func router() *gin.Engine {
 
 	// 健康检查接口
 	router.GET("/ping", PingInterface.Ping)
+
+	// 账户相关接口
+	account := router.Group("account")
+	{
+		account.POST("/register", AccountInterface.Register)
+	}
 
 	return router
 }
