@@ -65,9 +65,13 @@ func _on_register_confirm_button_pressed() -> void:
 	if register_password_input.text != register_confirm_password_input.text:
 		printerr("密码输入不一致")
 		return
+	if !check_mail_format(register_account_input.text):
+		printerr("邮箱格式不正确")
+		return
+	register_confirm_button.disabled = true
 	print("开始请求后端接口")
 	var post_data: Dictionary = {
-		"account": register_password_input.text,
+		"account": register_account_input.text,
 		"password": register_password_input.text,
 		"name": register_name_input.text,
 		"number": register_number_input.text,
@@ -83,8 +87,33 @@ func _on_register_confirm_button_pressed() -> void:
 			print("[接口反馈数据]", response)
 			if response["code"] == 0:
 				print("接口请求成功")
+				Global.update_account_token(response["data"]["token"])
+				register_confirm_button.disabled = false
+				register.visible = false
+				register_account_input.text = ""
+				register_password_input.text = ""
+				register_confirm_password_input.text = ""
+				register_name_input.text = ""
+				register_number_input.text = ""
+				register_question_a_input.text = ""
+				register_answer_a_input.text= ""
+				register_question_b_input.text = ""
+				register_answer_b_input.text = ""
 			else:
-				printerr("接口请求出错")
+				register_confirm_button.disabled = false
+				if response["code"] == 10001:
+					printerr("邮箱已经被使用，请换一个")
+				else:
+					printerr("接口请求出错")
 		else:
-			printerr("接口异常")	
+			printerr("接口异常")
+			register_confirm_button.disabled = false
 	)
+
+func check_mail_format(mail:String) -> bool:
+	var check:bool = true
+	var regex = RegEx.new()
+	regex.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")
+	if !regex.search(mail):
+		check = false
+	return check
