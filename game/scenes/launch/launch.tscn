@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://i6g3y6btijjm"]
+[gd_scene load_steps=25 format=3 uid="uid://i6g3y6btijjm"]
 
+[ext_resource type="Script" path="res://scripts/launch/launch.gd" id="1_4mmer"]
 [ext_resource type="Texture2D" uid="uid://d05rp7emahb2e" path="res://assets/launch/background.jpeg" id="1_5xji2"]
 [ext_resource type="Texture2D" uid="uid://cuej03yg4jipe" path="res://assets/launch/logo.png" id="2_0aob3"]
 [ext_resource type="Texture2D" uid="uid://fsim526ipc0l" path="res://assets/launch/login/login_main.png" id="3_5llxh"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c2yxw4e4eqhtf" path="res://assets/launch/login/change_password_button_1.png" id="11_qrjou"]
 [ext_resource type="Texture2D" uid="uid://bc32c8pqrsy0b" path="res://assets/launch/login/change_password_button_2.png" id="12_2fiqv"]
 [ext_resource type="Texture2D" uid="uid://7ckxiv7awadm" path="res://assets/launch/login/register.png" id="13_ruxkj"]
+[ext_resource type="FontFile" uid="uid://b8ippc7k3ew6o" path="res://assets/common/font/msyh.ttc" id="13_scx2i"]
 [ext_resource type="Texture2D" uid="uid://bijbk6c76ynei" path="res://assets/launch/login/change_password.png" id="14_d8t0o"]
 [ext_resource type="Texture2D" uid="uid://dmkyb57b0idt6" path="res://assets/launch/login/confirm_button_0.png" id="14_f5mlh"]
 [ext_resource type="Texture2D" uid="uid://b2fk8xp87k1g" path="res://assets/launch/login/confirm_button_1.png" id="15_783oq"]
@@ -21,6 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://06rsvnelh6ug" path="res://assets/launch/login/cancel_button_1.png" id="18_odk15"]
 [ext_resource type="Texture2D" uid="uid://cbdi6fpcw3q66" path="res://assets/launch/login/cancel_button_2.png" id="19_m2fqs"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6v8k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twyo5"]
+
 [node name="Launch" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -28,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4mmer")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -48,9 +55,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.5
-offset_top = -266.5
+offset_top = -264.5
 offset_right = 200.5
-offset_bottom = 170.5
+offset_bottom = 172.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0aob3")
@@ -79,14 +86,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -281.0
-offset_top = 60.5
+offset_top = 64.5
 offset_right = 281.0
-offset_bottom = 315.5
+offset_bottom = 319.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_5llxh")
 
-[node name="LoginButton" type="TextureButton" parent="Login/Main/Background"]
+[node name="MainSubmitButton" type="TextureButton" parent="Login/Main/Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,48 +101,88 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -93.0
-offset_top = 16.0
+offset_top = 13.0
 offset_right = 109.0
-offset_bottom = 62.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_h5ojd")
 texture_pressed = ExtResource("5_jt32w")
 texture_hover = ExtResource("6_0lxvy")
 
-[node name="RegisterButton" type="TextureButton" parent="Login/Main/Background"]
+[node name="MainRegisterButton" type="TextureButton" parent="Login/Main/Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = 80.0
-offset_right = -29.0
-offset_bottom = 103.0
+offset_left = -170.0
+offset_top = 81.0
+offset_right = -48.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("7_tqnk7")
 texture_pressed = ExtResource("8_gwvfn")
 texture_hover = ExtResource("9_4hsjm")
 
-[node name="RetrievePasswordButton" type="TextureButton" parent="Login/Main/Background"]
+[node name="MainChangePasswordButton" type="TextureButton" parent="Login/Main/Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 27.0
+offset_left = 45.0
 offset_top = 79.0
-offset_right = 149.0
+offset_right = 167.0
 offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("10_pmgwe")
 texture_pressed = ExtResource("11_qrjou")
 texture_hover = ExtResource("12_2fiqv")
+
+[node name="MainAccountInput" type="LineEdit" parent="Login/Main/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -79.5
+offset_right = 102.0
+offset_bottom = -52.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入登录邮箱"
+flat = true
+
+[node name="MainPasswordInput" type="LineEdit" parent="Login/Main/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -30.5
+offset_right = 103.0
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_twyo5")
+placeholder_text = "请输入登录密码"
+flat = true
+secret = true
+secret_character = "*"
 
 [node name="Register" type="Control" parent="Login"]
 layout_mode = 1
@@ -160,41 +207,213 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_ruxkj")
 
-[node name="ConfirmButton" type="TextureButton" parent="Login/Register/Background"]
+[node name="RegisterConfirmButton" type="TextureButton" parent="Login/Register/Background"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 23.0
-offset_top = 138.5
-offset_right = 107.0
-offset_bottom = 167.5
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -52.0
+offset_right = 104.0
+offset_bottom = -23.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 texture_normal = ExtResource("14_f5mlh")
 texture_pressed = ExtResource("15_783oq")
 texture_hover = ExtResource("16_tgcix")
 
-[node name="CancelButton" type="TextureButton" parent="Login/Register/Background"]
+[node name="RegisterCancelButton" type="TextureButton" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 121.0
+offset_top = -52.0
+offset_right = 205.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("17_1wujc")
+texture_pressed = ExtResource("18_odk15")
+texture_hover = ExtResource("19_m2fqs")
+
+[node name="RegisterAccountInput" type="LineEdit" parent="Login/Register/Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 117.0
-offset_top = 138.5
-offset_right = 201.0
-offset_bottom = 167.5
+offset_left = -170.5
+offset_top = -131.5
+offset_right = 10.5
+offset_bottom = -106.5
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("17_1wujc")
-texture_pressed = ExtResource("18_odk15")
-texture_hover = ExtResource("19_m2fqs")
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入登录邮箱"
+flat = true
 
-[node name="RetrievePassword" type="Control" parent="Login"]
+[node name="RegisterPasswordInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -101.5
+offset_right = 10.5
+offset_bottom = -76.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入登录密码"
+flat = true
+
+[node name="RegisterConfirmPasswordInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -71.5
+offset_right = 10.5
+offset_bottom = -46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入登录密码"
+flat = true
+
+[node name="RegisterNameInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -28.5
+offset_right = 9.5
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入真实姓名"
+flat = true
+
+[node name="RegisterNumberInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = 1.5
+offset_right = 9.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入身份证号码"
+flat = true
+
+[node name="RegisterQuestionAInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = 53.5
+offset_right = 9.5
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请设置密保问题"
+flat = true
+
+[node name="RegisterAnswerAInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = 83.5
+offset_right = 9.5
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请设置密保问题答案"
+flat = true
+
+[node name="RegisterQuestionBInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = 113.5
+offset_right = 9.5
+offset_bottom = 138.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请设置密保问题"
+flat = true
+
+[node name="RegisterAnswerBInput" type="LineEdit" parent="Login/Register/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = 143.5
+offset_right = 9.5
+offset_bottom = 168.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请设置密保问题答案"
+flat = true
+
+[node name="ChangePassword" type="Control" parent="Login"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -202,7 +421,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="Login/RetrievePassword"]
+[node name="Background" type="TextureRect" parent="Login/ChangePassword"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -217,23 +436,115 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("14_d8t0o")
 
-[node name="ConfirmButton" type="TextureButton" parent="Login/RetrievePassword/Background"]
-offset_left = 136.5
-offset_top = 186.5
-offset_right = 220.5
-offset_bottom = 215.5
+[node name="ChangePasswordConfirmButton" type="TextureButton" parent="Login/ChangePassword/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -62.0
+offset_right = 37.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
 texture_normal = ExtResource("14_f5mlh")
 texture_pressed = ExtResource("15_783oq")
 texture_hover = ExtResource("16_tgcix")
 
-[node name="CancelButton" type="TextureButton" parent="Login/RetrievePassword/Background"]
-offset_left = 238.5
-offset_top = 186.5
-offset_right = 322.5
-offset_bottom = 215.5
+[node name="ChangePasswordCancelButton" type="TextureButton" parent="Login/ChangePassword/Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = -62.0
+offset_right = 138.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
 texture_normal = ExtResource("17_1wujc")
 texture_pressed = ExtResource("18_odk15")
 texture_hover = ExtResource("19_m2fqs")
+
+[node name="ChangePasswordAccountInput" type="LineEdit" parent="Login/ChangePassword/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -64.5
+offset_right = 135.5
+offset_bottom = -39.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入账户邮箱"
+flat = true
+
+[node name="ChangePasswordOldInput" type="LineEdit" parent="Login/ChangePassword/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -34.5
+offset_right = 135.5
+offset_bottom = -9.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入原始密码"
+flat = true
+
+[node name="ChangePasswordNewInput" type="LineEdit" parent="Login/ChangePassword/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -4.5
+offset_right = 135.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请输入新的密码"
+flat = true
+
+[node name="ChangePasswordConfirmInput" type="LineEdit" parent="Login/ChangePassword/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = 25.5
+offset_right = 135.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_scx2i")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m6v8k")
+placeholder_text = "请再次输入新的密码"
+flat = true
 
 [node name="Server" type="Control" parent="."]
 anchors_preset = 0
@@ -244,3 +555,9 @@ offset_bottom = 40.0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="pressed" from="Login/Main/Background/MainRegisterButton" to="." method="_on_main_register_button_pressed"]
+[connection signal="pressed" from="Login/Main/Background/MainChangePasswordButton" to="." method="_on_main_change_password_button_pressed"]
+[connection signal="pressed" from="Login/Register/Background/RegisterConfirmButton" to="." method="_on_register_confirm_button_pressed"]
+[connection signal="pressed" from="Login/Register/Background/RegisterCancelButton" to="." method="_on_register_cancel_button_pressed"]
+[connection signal="pressed" from="Login/ChangePassword/Background/ChangePasswordCancelButton" to="." method="_on_change_password_cancel_button_pressed"]

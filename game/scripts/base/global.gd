@@ -60,3 +60,8 @@ func get_server_address() -> String:
 # 获取用户Token
 func get_account_token() -> String:
 	return data["account"]["token"]
+	
+# 更新并返回用户Token
+func update_account_token(token: String) -> String:
+	data["account"]["token"] = token
+	return data["account"]["token"]
