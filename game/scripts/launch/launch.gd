@@ -77,3 +77,14 @@ func _on_register_confirm_button_pressed() -> void:
 		"answer_b": register_answer_b_input.text,
 	}
 	print(post_data)
+	Request.on_server("/account/register", HTTPClient.METHOD_POST, post_data, func(_result, code, _headers, body):
+		if code == 200:
+			var response = JSON.parse_string(body.get_string_from_utf8())
+			print("[接口反馈数据]", response)
+			if response["code"] == 0:
+				print("接口请求成功")
+			else:
+				printerr("接口请求出错")
+		else:
+			printerr("接口异常")	
+	)
