@@ -32,5 +32,6 @@ export default defineComponent({
 </script>
 
 <style>
-@import "./assets/css/base.scss";
+@import "./assets/css/base.css";
+@import "./assets/css/globals.css";
 </style>
