@@ -17,7 +17,12 @@
         "types": [
             "node"
         ],
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        }
     },
     "include": [
         "src/**/*.ts",

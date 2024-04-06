@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://i6g3y6btijjm"]
+[gd_scene load_steps=26 format=3 uid="uid://i6g3y6btijjm"]
 
 [ext_resource type="Script" path="res://scripts/launch/launch.gd" id="1_4mmer"]
 [ext_resource type="Texture2D" uid="uid://d05rp7emahb2e" path="res://assets/launch/background.jpeg" id="1_5xji2"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bff7ga8f5lquw" path="res://assets/launch/login/cancel_button_0.png" id="17_1wujc"]
 [ext_resource type="Texture2D" uid="uid://06rsvnelh6ug" path="res://assets/launch/login/cancel_button_1.png" id="18_odk15"]
 [ext_resource type="Texture2D" uid="uid://cbdi6fpcw3q66" path="res://assets/launch/login/cancel_button_2.png" id="19_m2fqs"]
+[ext_resource type="Texture2D" uid="uid://dkvmumemt6bq6" path="res://assets/launch/server/server.png" id="23_j3a1k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m6v8k"]
 
@@ -413,7 +414,6 @@ placeholder_text = "请设置密保问题答案"
 flat = true
 
 [node name="ChangePassword" type="Control" parent="Login"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -547,9 +547,35 @@ placeholder_text = "请再次输入新的密码"
 flat = true
 
 [node name="Server" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="Control" parent="Server"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Server/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -211.5
+offset_right = 137.0
+offset_bottom = 211.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_j3a1k")
 
 [node name="Role" type="Control" parent="."]
 anchors_preset = 0

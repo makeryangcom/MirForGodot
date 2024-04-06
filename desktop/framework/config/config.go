@@ -27,7 +27,10 @@ type Data struct {
 func Init(version embed.FS) {
 	wails, _ := version.ReadFile("wails.json")
 	var wailsJson Data
-	json.Unmarshal(wails, &wailsJson)
+	err := json.Unmarshal(wails, &wailsJson)
+	if err != nil {
+		return
+	}
 	Get.Info.ProductVersion = wailsJson.Info.ProductVersion
 	Get.Info.ProductName = wailsJson.Info.ProductName
 	Get.Info.CompanyName = wailsJson.Info.CompanyName
