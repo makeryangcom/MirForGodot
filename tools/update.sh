@@ -2,34 +2,8 @@
 
 set -e
 
-# 复制Nginx、服务配置配置
-sudo cp -r ./tools/centos/* /
+sudo rm -rf /etc/nginx/conf.d/* && sudo rm -rf /etc/nginx/ssl/* && sudo rm -rf /data/wwwroot/service/*
 
-# 复制后端服务到运行目录
-sudo rm -rf /data/wwwroot/server
-sudo cp -r ./server /data/wwwroot/
+sudo cp -r ./centos/* /
 
-# 创建游戏引擎服务端运行目录
-if [ ! -d "/data/wwwroot/game" ]; then
-    mkdir -p /data/wwwroot/game
-fi
-
-# shellcheck disable=SC2012
-if [ "$(ls -A /data/wwwroot/game/ | wc -l)" -ne 0 ]; then
-  sudo chmod +x /data/wwwroot/game/*
-fi
-
-# 编译后端服务
-cd /data/wwwroot/server/
-/usr/local/go/bin/go env -w GOSUMDB=off
-export GO111MODULE=on && export GOPROXY=https://goproxy.io && /usr/local/go/bin/go build main.go
-
-# 重启Nginx服务
-sudo systemctl restart nginx.service
-
-# 重启后端服务和游戏服务
-sudo systemctl daemon-reload
-sudo systemctl enable server.service
-sudo systemctl restart server.service
-sudo systemctl enable game.service
-sudo systemctl restart game.service
+sudo cp -r ../service /data/wwwroot/

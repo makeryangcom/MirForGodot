@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=3 uid="uid://74ihfvnueae0"]
+
+[ext_resource type="Texture2D" uid="uid://c425ofa7y1p7d" path="res://assets/launch/background.jpeg" id="1_a5t2r"]
+[ext_resource type="Script" path="res://scripts/launch/launch.gd" id="1_lu3df"]
+[ext_resource type="Texture2D" uid="uid://ciscvv0sj426y" path="res://assets/launch/adolescent_icon.png" id="3_7i6k8"]
+[ext_resource type="PackedScene" uid="uid://buarwy7fi7x80" path="res://scenes/launch/nodes/login.tscn" id="4_tdg6u"]
+[ext_resource type="Texture2D" uid="uid://bpeceqaum1dd5" path="res://assets/launch/dialog/message_background.png" id="6_eexd2"]
+[ext_resource type="PackedScene" uid="uid://k6phj0lt8xl3" path="res://scenes/launch/nodes/server.tscn" id="6_miabo"]
+[ext_resource type="PackedScene" uid="uid://banx0453bykk4" path="res://scenes/launch/nodes/role.tscn" id="7_gv5y7"]
+[ext_resource type="FontFile" uid="uid://sk3ot7ejjfpl" path="res://assets/common/font/HarmonyOS_Sans_Bold.ttf" id="7_ufajn"]
+[ext_resource type="FontFile" uid="uid://ckpr0yhauuvsv" path="res://assets/common/font/HarmonyOS_Sans_Light.ttf" id="8_tyyhy"]
+
+[node name="Launch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_lu3df")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a5t2r")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Adolescent" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 74.0
+grow_horizontal = 0
+texture = ExtResource("3_7i6k8")
+
+[node name="Login" parent="." instance=ExtResource("4_tdg6u")]
+layout_mode = 1
+
+[node name="Server" parent="." instance=ExtResource("6_miabo")]
+layout_mode = 1
+
+[node name="Role" parent="." instance=ExtResource("7_gv5y7")]
+layout_mode = 1
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -20.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_tyyhy")
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dialog" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Background" type="TextureRect" parent="Dialog"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = 13.0
+offset_right = 111.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_eexd2")
+
+[node name="DialogMessage" type="Label" parent="Dialog"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 28.5
+offset_right = 20.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.861679, 0.628544, 0.315832, 1)
+theme_override_fonts/font = ExtResource("7_ufajn")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
+[connection signal="switch_server_signal" from="Login" to="." method="_on_login_switch_server_signal"]
+[connection signal="switch_role_signal" from="Server" to="." method="_on_server_switch_role_signal"]
+[connection signal="switch_login_signal" from="Role" to="." method="_on_role_switch_login_signal"]
+[connection signal="switch_world_signal" from="Role" to="." method="_on_role_switch_world_signal"]

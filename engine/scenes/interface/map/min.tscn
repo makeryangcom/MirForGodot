@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqalsjq3hjg1a"]
+
+[ext_resource type="Texture2D" uid="uid://di2p578ifbuto" path="res://assets/interface/top_right/map/map_arrow_dow_button_0.png" id="1_h0q4l"]
+[ext_resource type="Script" path="res://scripts/interface/map/min.gd" id="1_x02y4"]
+[ext_resource type="Texture2D" uid="uid://cdnosdwmkana8" path="res://assets/interface/top_right/map/player.png" id="3_8rdo3"]
+[ext_resource type="Texture2D" uid="uid://d4bpd8tynyq4o" path="res://assets/interface/top_right/map/map_arrow_dow_button_1.png" id="3_wfppn"]
+[ext_resource type="Texture2D" uid="uid://c2utacqfh8n1d" path="res://assets/interface/top_right/map/map_arrow_top_button_0.png" id="4_6nixd"]
+[ext_resource type="Texture2D" uid="uid://bre0nmm5wau2n" path="res://assets/interface/top_right/map/map_arrow_dow_button_2.png" id="4_enrhx"]
+[ext_resource type="Texture2D" uid="uid://dno5jxnq0e3rb" path="res://assets/interface/top_right/map/map_arrow_top_button_2.png" id="5_rhueu"]
+[ext_resource type="Texture2D" uid="uid://byyadiefyxf8w" path="res://assets/interface/top_right/map/map_arrow_top_button_1.png" id="6_uxlti"]
+[ext_resource type="Texture2D" uid="uid://cqrowfb2464nh" path="res://assets/interface/top_right/map/map_mask.png" id="7_k32bx"]
+[ext_resource type="Texture2D" uid="uid://xoq41dadhx8n" path="res://assets/interface/top_right/map/map_header.png" id="8_dn5al"]
+[ext_resource type="FontFile" uid="uid://bdqjkns2nmsb7" path="res://assets/common/font/HarmonyOS_Sans_Medium.ttf" id="9_h33d0"]
+
+[node name="MinMain" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_x02y4")
+
+[node name="MinMapMask" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 169.0
+grow_horizontal = 0
+texture = ExtResource("7_k32bx")
+
+[node name="MinMapMain" type="SubViewportContainer" parent="MinMapMask"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 23.0
+offset_right = -2.0
+offset_bottom = 167.0
+grow_horizontal = 0
+stretch = true
+
+[node name="MinMapMainViewport" type="SubViewport" parent="MinMapMask/MinMapMain"]
+handle_input_locally = false
+size = Vector2i(166, 144)
+render_target_update_mode = 4
+
+[node name="MinMapMainViewportLocation" type="TextureRect" parent="MinMapMask/MinMapMain/MinMapMainViewport"]
+offset_right = 7.0
+offset_bottom = 7.0
+texture = ExtResource("3_8rdo3")
+
+[node name="MinMapMainViewportCamera" type="Camera2D" parent="MinMapMask/MinMapMain/MinMapMainViewport"]
+zoom = Vector2(0.1, 0.1)
+
+[node name="MinMapMainButton" type="TextureButton" parent="MinMapMask"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 23.0
+offset_right = -2.0
+offset_bottom = 167.0
+grow_horizontal = 0
+
+[node name="MinMapShowButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_top = -1.0
+offset_right = -170.0
+offset_bottom = 25.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_h0q4l")
+texture_pressed = ExtResource("3_wfppn")
+texture_hover = ExtResource("4_enrhx")
+
+[node name="MinMapHideButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_top = -1.0
+offset_right = -170.0
+offset_bottom = 25.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_6nixd")
+texture_pressed = ExtResource("6_uxlti")
+texture_hover = ExtResource("5_rhueu")
+
+[node name="MinMapHeader" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 23.0
+grow_horizontal = 0
+texture = ExtResource("8_dn5al")
+
+[node name="MinMapLabel" type="Label" parent="MinMapHeader"]
+layout_mode = 0
+offset_left = 9.0
+offset_right = 161.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("9_h33d0")
+theme_override_font_sizes/font_size = 11
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MinMapMask/MinMapMainButton" to="." method="_on_min_map_main_button_pressed"]
+[connection signal="pressed" from="MinMapShowButton" to="." method="_on_min_map_show_button_pressed"]
+[connection signal="pressed" from="MinMapHideButton" to="." method="_on_min_map_hide_button_pressed"]

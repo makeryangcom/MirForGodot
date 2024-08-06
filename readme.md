@@ -1,49 +1,88 @@
-# 🛠️ Engine2D
+# Mir2ForGodot
 
-⚡ 基于Godot的2D游戏开发框架 ⚡
+⚡ Mir2(2D MMORPG Game) For Godot ⚡
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+### Environment
 
+> Godot 4.3、NodeJS 20.14.0、Python 3.10.10、Golang 1.22.0、VS2019
 
-### 🔦 源码下载
+### Install
 
-> 随着框架不断的迭代，仓库的历史提交数据逐渐庞大，你可以使用下面的命令来加速源码的下载。
+> On Centos Install Godot Server
+
+### Godot Builds
+
+> Compile private production environment editor and export template, compile platform Ubuntu 18.04, Windows11
+
+#### 一、PCK Keygen
 
 ```shell
-git clone --depth=1 git@github.com:makeryangcom/Engine2D.git
+passphrase=makeryang@com
+salt=00818CB5BBC4E346
+key=B2B8A15FE5962BB6CCEB8D8634E9163561B0D5D62C24ECD0BA5C1EEC61648271
+iv =62D1DE9D0C3B74CD8C1238E934804C1D
 ```
 
-### 🛸 技术栈
+#### 二、Install&Update
 
-> 构建一个完整的游戏需要多种技术栈的整合，本框架涉及的技术栈如下：
-
-| Software | Version | Describe |
-| - | - | - |
-| Godot | 4.2.1+ | 游戏引擎 |
-| Golang | 1.19.4+ | 后端服务 |
-| NodeJS | 18.13.0+ | 桌面管理工具 |
-
-### ✨ 目录结构
-
-> 框架包含游戏引擎、后端服务、桌面管理工具等核心模块，详见下面的目录结构说明：
-
-```html
-/Engine2D/
-├─engine <!--Godot游戏引擎源码-->
-├─server <!--Golang后端服务源码-->
-├─desktop <!--桌面管理工具源码-->
+```shell
+sudo apt upgrade && sudo apt update
+sudo apt install -y curl wget git vim openssh-server net-tools
+sudo apt-get install -y build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu1-mesa-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev libwayland-dev
 ```
 
-### 🚀 配套课程
+Update SCons
 
-> 框架配套的相关的课程可以在`https://www.makeryang.com`获取。
+```shell
+sudo apt remove scons
+sudo apt install python3-pip
+python3 -m pip install scons -i https://pypi.tuna.tsinghua.edu.cn/simple
+python3 -m pip install scons
+```
 
-### 💡 关于作者
+Update GCC
 
-🔗 Wechat: `makeryang8080`
+```shell
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install gcc-9 g++-9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-9
+```
 
-🔗 WebSite: `https://www.makeryang.com`
+#### 三、Build
 
-🔗 Bilibili: `https://space.bilibili.com/596334734`
+Set the private key required for encryption
 
-🔗 DouYin&Tiktok: `MakerYang`
+```shell
+# Windows
+set SCRIPT_AES256_ENCRYPTION_KEY=B2B8A15FE5962BB6CCEB8D8634E9163561B0D5D62C24ECD0BA5C1EEC61648271
+# Linux
+export SCRIPT_AES256_ENCRYPTION_KEY="B2B8A15FE5962BB6CCEB8D8634E9163561B0D5D62C24ECD0BA5C1EEC61648271"
+```
+
+Modify the following program in line 311 of modules/multiplayer/scene_multilayer.cpp
+
+```shell
+// ERR_FAIL_COND(peer > 0 && !connected_peers.has(peer));
+if(peer > 0 && !connected_peers.has(peer)){
+    return;
+}
+```
+
+```shell
+scons -j6 platform=windows production=yes
+```
+
+Build Export Templates
+
+```shell
+# Windows
+scons platform=windows target=template_debug arch=x86_64
+scons platform=windows target=template_release arch=x86_64
+```
+
+```shell
+# Linux
+/home/build/.local/bin/scons platform=linuxbsd target=template_debug arch=x86_64
+/home/build/.local/bin/scons platform=linuxbsd target=template_release arch=x86_64
+```

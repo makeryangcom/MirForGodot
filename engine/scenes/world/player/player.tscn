@@ -1,0 +1,237 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7woojpgb0g6a"]
+
+[ext_resource type="Script" path="res://scripts/world/player/player.gd" id="1_1o7ti"]
+[ext_resource type="Texture2D" uid="uid://bfd21dxlg4ltq" path="res://assets/world/player/player_header_background.png" id="2_huru7"]
+[ext_resource type="FontFile" uid="uid://bdqjkns2nmsb7" path="res://assets/common/font/HarmonyOS_Sans_Medium.ttf" id="2_n1gd6"]
+[ext_resource type="Texture2D" uid="uid://dgucu1nj0fogi" path="res://assets/world/player/light_circle_texture.png" id="2_togtw"]
+[ext_resource type="Texture2D" uid="uid://co13rlbh5ti5e" path="res://assets/world/player/player_header_health.png" id="3_84s7b"]
+[ext_resource type="Texture2D" uid="uid://cf7yn0ob70oc4" path="res://assets/world/player/player_header_magic.png" id="5_d1yvs"]
+[ext_resource type="Script" path="res://scripts/world/player/state/state.gd" id="6_fovl6"]
+[ext_resource type="Script" path="res://scripts/world/player/state/action/stand.gd" id="7_xu37x"]
+[ext_resource type="Script" path="res://scripts/world/player/state/action/walking.gd" id="8_4c1by"]
+[ext_resource type="Script" path="res://scripts/world/player/state/action/running.gd" id="9_dj8c0"]
+[ext_resource type="Script" path="res://scripts/world/player/state/action/attack.gd" id="10_eoorg"]
+[ext_resource type="Script" path="res://scripts/world/player/state/action/attack_stand.gd" id="11_jupor"]
+[ext_resource type="Script" path="res://scripts/world/player/state/action/pickup.gd" id="12_2pveg"]
+[ext_resource type="Script" path="res://scripts/world/player/state/action/launch.gd" id="13_kte8y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tw0pv"]
+height = 20.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4lcem"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:player_action")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:player_direction")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_1o7ti")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tw0pv")
+
+[node name="PlayerLight" type="Node2D" parent="."]
+
+[node name="PlayerPointLight" type="PointLight2D" parent="PlayerLight"]
+energy = 0.0
+texture = ExtResource("2_togtw")
+texture_scale = 1.5
+
+[node name="PlayerMain" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerBody" type="Control" parent="PlayerMain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerBodyWeaponIndex" type="Control" parent="PlayerMain/PlayerBody"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerBodyWingIndex" type="Control" parent="PlayerMain/PlayerBody"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerBodyClothe" type="Control" parent="PlayerMain/PlayerBody"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerBodyWeapon" type="Control" parent="PlayerMain/PlayerBody"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerBodyWing" type="Control" parent="PlayerMain/PlayerBody"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerHeader" type="Control" parent="PlayerMain"]
+anchors_preset = 0
+
+[node name="PlayerHeaderTitle" type="Label" parent="PlayerMain/PlayerHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -91.0
+offset_right = 21.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n1gd6")
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerHeaderLifeProgress" type="TextureProgressBar" parent="PlayerMain/PlayerHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -80.0
+offset_right = 16.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("2_huru7")
+texture_progress = ExtResource("3_84s7b")
+
+[node name="PlayerHeaderMagicProgress" type="TextureProgressBar" parent="PlayerMain/PlayerHeader"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -75.0
+offset_right = 16.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("2_huru7")
+texture_progress = ExtResource("5_d1yvs")
+
+[node name="PlayerTitle" type="Label" parent="PlayerMain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -45.5
+offset_right = 33.0
+offset_bottom = -30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n1gd6")
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="PlayerMain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -30.0
+offset_right = 21.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("2_n1gd6")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 30)
+
+[node name="PlayerStateMachine" type="Node2D" parent="."]
+script = ExtResource("6_fovl6")
+
+[node name="Stand" type="Node2D" parent="PlayerStateMachine"]
+script = ExtResource("7_xu37x")
+
+[node name="Walking" type="Node2D" parent="PlayerStateMachine"]
+script = ExtResource("8_4c1by")
+
+[node name="Running" type="Node2D" parent="PlayerStateMachine"]
+script = ExtResource("9_dj8c0")
+
+[node name="Attack" type="Node2D" parent="PlayerStateMachine"]
+script = ExtResource("10_eoorg")
+
+[node name="AttackStand" type="Node2D" parent="PlayerStateMachine"]
+script = ExtResource("11_jupor")
+
+[node name="Pickup" type="Node2D" parent="PlayerStateMachine"]
+script = ExtResource("12_2pveg")
+
+[node name="Launch" type="Node2D" parent="PlayerStateMachine"]
+script = ExtResource("13_kte8y")
+
+[node name="MultiPlayer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_4lcem")

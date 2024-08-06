@@ -1,0 +1,824 @@
+[gd_scene load_steps=94 format=3 uid="uid://mdc0m23n7dli"]
+
+[ext_resource type="Script" path="res://scripts/interface/dashboard/dashboard.gd" id="1_rpuli"]
+[ext_resource type="Texture2D" uid="uid://bhtkq2he8kflt" path="res://assets/interface/footer_header.png" id="2_ear8b"]
+[ext_resource type="Texture2D" uid="uid://cobfbremn7xlx" path="res://assets/interface/footer_bottom.png" id="3_5os3k"]
+[ext_resource type="Texture2D" uid="uid://crrecvf5mnlbr" path="res://assets/interface/footer_middle/left/time/001.png" id="4_skxru"]
+[ext_resource type="FontFile" uid="uid://bdqjkns2nmsb7" path="res://assets/common/font/HarmonyOS_Sans_Medium.ttf" id="5_8ftdu"]
+[ext_resource type="Texture2D" uid="uid://bhpawo7633ix6" path="res://assets/interface/footer_middle/centre/centre_round_1.png" id="6_1fhm2"]
+[ext_resource type="Texture2D" uid="uid://ytw711fieu2s" path="res://assets/interface/footer_middle/centre/centre_round_2.png" id="7_d2awo"]
+[ext_resource type="Texture2D" uid="uid://g7jotu7qytqd" path="res://assets/interface/footer_middle/centre/centre_round_0.png" id="8_c1qxx"]
+[ext_resource type="Texture2D" uid="uid://dyegmi7hv50t" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_0.png" id="9_dbbds"]
+[ext_resource type="Texture2D" uid="uid://6ueho0dsy0il" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_1.png" id="10_vum48"]
+[ext_resource type="Texture2D" uid="uid://dxjypcvdlo4ne" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_2.png" id="11_lju3d"]
+[ext_resource type="Texture2D" uid="uid://bj65gw713vwpp" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_3.png" id="12_5jlq1"]
+[ext_resource type="Texture2D" uid="uid://shu5ku1ojes3" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_4.png" id="13_6m00y"]
+[ext_resource type="Texture2D" uid="uid://prryuxbvj15m" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_5.png" id="14_jo361"]
+[ext_resource type="Texture2D" uid="uid://cxia8odbtts6k" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_6.png" id="15_p8yhc"]
+[ext_resource type="Texture2D" uid="uid://7j7uok2fcvuf" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_7.png" id="16_rfmg5"]
+[ext_resource type="Texture2D" uid="uid://d3j7ld2x5o6hb" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_8.png" id="17_fr28f"]
+[ext_resource type="Texture2D" uid="uid://3x2uoyadfqtt" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_9.png" id="18_a07ft"]
+[ext_resource type="Texture2D" uid="uid://dqxcvjsg0wugu" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_10.png" id="19_irmfm"]
+[ext_resource type="Texture2D" uid="uid://bf4gq5m7wpub8" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_11.png" id="20_5bhv8"]
+[ext_resource type="Texture2D" uid="uid://bd6l1sglu68rh" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_12.png" id="21_axxm4"]
+[ext_resource type="Texture2D" uid="uid://dbw1k272rpmay" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_13.png" id="22_2r3pf"]
+[ext_resource type="Texture2D" uid="uid://cu5jv3aeitqmx" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_14.png" id="23_iea45"]
+[ext_resource type="Texture2D" uid="uid://36cgngfnl0gp" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_15.png" id="24_5f3sg"]
+[ext_resource type="Texture2D" uid="uid://dwah1g2ibvdmm" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_16.png" id="25_qkqlg"]
+[ext_resource type="Texture2D" uid="uid://ca7h5c31j14yi" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_17.png" id="26_ins40"]
+[ext_resource type="Texture2D" uid="uid://6mdabaskdgeq" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_18.png" id="27_kj0vr"]
+[ext_resource type="Texture2D" uid="uid://ceae10yuml3ru" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_19.png" id="28_io8fj"]
+[ext_resource type="Texture2D" uid="uid://dte1qyhhk3o56" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_20.png" id="29_b48fv"]
+[ext_resource type="Texture2D" uid="uid://dvrehk4c6cfy8" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_21.png" id="30_ivhk0"]
+[ext_resource type="Texture2D" uid="uid://nc37smb1w7si" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_22.png" id="31_ts0uw"]
+[ext_resource type="Texture2D" uid="uid://cb05hw2m8m0id" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_23.png" id="32_deiuu"]
+[ext_resource type="Texture2D" uid="uid://c4k4rqqwo4fa0" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_24.png" id="33_4xvpj"]
+[ext_resource type="Texture2D" uid="uid://dn5ffkuvkw7do" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_25.png" id="34_kl3a1"]
+[ext_resource type="Texture2D" uid="uid://bbjd625avwtki" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_26.png" id="35_7wajd"]
+[ext_resource type="Texture2D" uid="uid://dnd5gpiw2g0ry" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_27.png" id="36_ut7lp"]
+[ext_resource type="Texture2D" uid="uid://b5hhyl3xf4mj0" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_28.png" id="37_ystwd"]
+[ext_resource type="Texture2D" uid="uid://cff06lgdwscu8" path="res://assets/interface/footer_middle/centre/animation/centre_round_a_29.png" id="38_b477j"]
+[ext_resource type="Texture2D" uid="uid://bx7lgcdx2a85f" path="res://assets/interface/footer_middle/right/volume_button_0.png" id="39_tl6pd"]
+[ext_resource type="Texture2D" uid="uid://m8lled01kesb" path="res://assets/interface/footer_middle/right/volume_button_1.png" id="40_576l5"]
+[ext_resource type="Texture2D" uid="uid://bcs5nxljetrx8" path="res://assets/interface/footer_middle/right/volume_button_2.png" id="41_ko48w"]
+[ext_resource type="Texture2D" uid="uid://ccs83gpm1he58" path="res://assets/interface/footer_middle/right/mode_button_0.png" id="42_mnsve"]
+[ext_resource type="Texture2D" uid="uid://bjkynnsqkd654" path="res://assets/interface/footer_middle/right/mode_button_1.png" id="43_5q7my"]
+[ext_resource type="Texture2D" uid="uid://mtmlgs1xssl5" path="res://assets/interface/footer_middle/right/mode_button_2.png" id="44_br2v5"]
+[ext_resource type="Texture2D" uid="uid://b7v8gjeg5iwf5" path="res://assets/interface/footer_middle/right/header_0_0.png" id="45_j1mll"]
+[ext_resource type="Texture2D" uid="uid://bmy1yxuhbm7io" path="res://assets/interface/footer_middle/right/header_0_2.png" id="46_11hkw"]
+[ext_resource type="Texture2D" uid="uid://c2erphlcn5oaw" path="res://assets/interface/footer_middle/right/header_0_1.png" id="47_bbgcx"]
+[ext_resource type="Texture2D" uid="uid://c3cwc7vr6b7vv" path="res://assets/interface/footer_middle/right/header_1_0.png" id="48_ff3q3"]
+[ext_resource type="Texture2D" uid="uid://bxd8d1yt78oi5" path="res://assets/interface/footer_middle/right/header_1_2.png" id="49_g3ddf"]
+[ext_resource type="Texture2D" uid="uid://c2pdunssovcry" path="res://assets/interface/footer_middle/right/header_1_1.png" id="50_28cb8"]
+[ext_resource type="Texture2D" uid="uid://1xo2e1fqqvpj" path="res://assets/interface/footer_middle/right/header_2_0.png" id="51_ixa48"]
+[ext_resource type="Texture2D" uid="uid://o1l6y7s5y3rh" path="res://assets/interface/footer_middle/right/header_2_2.png" id="52_3ovqd"]
+[ext_resource type="Texture2D" uid="uid://2rrx5nhe175x" path="res://assets/interface/footer_middle/right/header_2_1.png" id="53_8xtns"]
+[ext_resource type="Texture2D" uid="uid://xxckkkhinjy1" path="res://assets/interface/footer_middle/right/header_3_0.png" id="54_6dndl"]
+[ext_resource type="Texture2D" uid="uid://bu4jvwfsvt42e" path="res://assets/interface/footer_middle/right/header_3_2.png" id="55_0inl1"]
+[ext_resource type="Texture2D" uid="uid://d4kxpb1abacru" path="res://assets/interface/footer_middle/right/header_3_1.png" id="56_lsvyd"]
+[ext_resource type="Texture2D" uid="uid://b17i7f5k4gueb" path="res://assets/interface/footer_middle/right/header_5_0.png" id="57_8tmue"]
+[ext_resource type="Texture2D" uid="uid://cjbd0fdjdtnr6" path="res://assets/interface/footer_middle/right/header_5_2.png" id="58_7rde3"]
+[ext_resource type="Texture2D" uid="uid://bc81yfalg4aad" path="res://assets/interface/footer_middle/right/header_5_1.png" id="59_cxmmm"]
+[ext_resource type="Texture2D" uid="uid://b40m5pouoe6q6" path="res://assets/interface/footer_middle/right/header_8_1.png" id="60_82ghk"]
+[ext_resource type="Texture2D" uid="uid://c55idt20ixhi3" path="res://assets/interface/footer_middle/right/header_8_2.png" id="61_vtilk"]
+[ext_resource type="Texture2D" uid="uid://br8f3o442g8bp" path="res://assets/interface/footer_middle/right/header_8_0.png" id="62_c1vgr"]
+[ext_resource type="Texture2D" uid="uid://2nwyfv5c3ia8" path="res://assets/interface/footer_middle/right/header_6_0.png" id="63_52lbk"]
+[ext_resource type="Texture2D" uid="uid://ch37ksxs5jv6j" path="res://assets/interface/footer_middle/right/header_6_2.png" id="64_lxhx6"]
+[ext_resource type="Texture2D" uid="uid://bgrj8887dquu" path="res://assets/interface/footer_middle/right/header_6_1.png" id="65_gk236"]
+[ext_resource type="Texture2D" uid="uid://bx8qy14gugx5h" path="res://assets/interface/footer_middle/right/header_7_0.png" id="66_xf2k6"]
+[ext_resource type="Texture2D" uid="uid://vcj04n4gjxso" path="res://assets/interface/footer_middle/right/header_7_2.png" id="67_wgiay"]
+[ext_resource type="Texture2D" uid="uid://c2orey3hnx53g" path="res://assets/interface/footer_middle/right/header_7_1.png" id="68_yh2dl"]
+[ext_resource type="Texture2D" uid="uid://cxhl2jubwwmyu" path="res://assets/interface/footer_middle/right/right_0_0.png" id="69_n1wss"]
+[ext_resource type="Texture2D" uid="uid://bs3dqhiaosvfl" path="res://assets/interface/footer_middle/right/right_0_2.png" id="70_83fxt"]
+[ext_resource type="Texture2D" uid="uid://bibb2d70yitr1" path="res://assets/interface/footer_middle/right/right_0_1.png" id="71_wk2v6"]
+[ext_resource type="Texture2D" uid="uid://wmj3odkvgdtw" path="res://assets/interface/footer_middle/right/right_1_0.png" id="72_7x0ox"]
+[ext_resource type="Texture2D" uid="uid://bti076jk4qduy" path="res://assets/interface/footer_middle/right/right_1_2.png" id="73_wnfg3"]
+[ext_resource type="Texture2D" uid="uid://bogs858jaax6x" path="res://assets/interface/footer_middle/right/right_1_1.png" id="74_7dcld"]
+[ext_resource type="Texture2D" uid="uid://7cbepghktcfa" path="res://assets/interface/footer_middle/right/right_2_0.png" id="75_jk2ib"]
+[ext_resource type="Texture2D" uid="uid://bv5l0mehbewon" path="res://assets/interface/footer_middle/right/right_2_2.png" id="76_edofu"]
+[ext_resource type="Texture2D" uid="uid://056ovngyqtcx" path="res://assets/interface/footer_middle/right/right_2_1.png" id="77_yick3"]
+[ext_resource type="Texture2D" uid="uid://doj68eagvxwf2" path="res://assets/interface/footer_middle/right/right_4_0.png" id="78_6hrnc"]
+[ext_resource type="Texture2D" uid="uid://cjbhyeflsybjq" path="res://assets/interface/footer_middle/right/right_4_2.png" id="79_7on2q"]
+[ext_resource type="Texture2D" uid="uid://ciamc5y8y367y" path="res://assets/interface/footer_middle/right/right_4_1.png" id="80_jq866"]
+[ext_resource type="Texture2D" uid="uid://b7ki5xwo134oe" path="res://assets/interface/footer_middle/right/right_3_0.png" id="81_2xkue"]
+[ext_resource type="Texture2D" uid="uid://cctep81b8dxet" path="res://assets/interface/footer_middle/right/right_3_2.png" id="82_ut0p6"]
+[ext_resource type="Texture2D" uid="uid://da3el2gt8tnfs" path="res://assets/interface/footer_middle/right/right_3_1.png" id="83_c6vhd"]
+[ext_resource type="Texture2D" uid="uid://bk65yn335660j" path="res://assets/interface/footer_middle/right/right_5_0.png" id="84_iod6c"]
+[ext_resource type="Texture2D" uid="uid://6whakfq5tcmb" path="res://assets/interface/footer_middle/right/right_5_2.png" id="85_meqoy"]
+[ext_resource type="Texture2D" uid="uid://dasgdbxlr2cd3" path="res://assets/interface/footer_middle/right/right_5_1.png" id="86_f3krn"]
+[ext_resource type="Texture2D" uid="uid://qekmqatqsdbe" path="res://assets/interface/footer_middle/right/right_7_0.png" id="87_82766"]
+[ext_resource type="Texture2D" uid="uid://dvmf77inr7pat" path="res://assets/interface/footer_middle/right/right_7_2.png" id="88_62q1n"]
+[ext_resource type="Texture2D" uid="uid://dnqgomw3b1q88" path="res://assets/interface/footer_middle/right/right_7_1.png" id="89_5xnc5"]
+[ext_resource type="Texture2D" uid="uid://ck27hux6v7mdg" path="res://assets/interface/footer_middle/experience/weight_background.png" id="90_75kvo"]
+[ext_resource type="Texture2D" uid="uid://dtlu6eut7mwyn" path="res://assets/interface/footer_middle/experience/experience_background.png" id="91_ebtfn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ek6y"]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5d66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_dbbds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vum48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lju3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5jlq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6m00y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jo361")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p8yhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rfmg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fr28f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_a07ft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_irmfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5bhv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_axxm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2r3pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_iea45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5f3sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_qkqlg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ins40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_kj0vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_io8fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_b48fv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ivhk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ts0uw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_deiuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_4xvpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_kl3a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_7wajd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ut7lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ystwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_b477j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="DashboardMain" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_rpuli")
+
+[node name="FooterBackground" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="FooterBackgroundHeader" type="TextureRect" parent="FooterBackground"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -218.0
+offset_right = 96.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_ear8b")
+
+[node name="FooterBackgroundBottom" type="TextureRect" parent="FooterBackground"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -492.0
+offset_top = -78.0
+offset_right = 492.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_5os3k")
+
+[node name="FooterLeft" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FooterLeftTime" type="Control" parent="FooterLeft"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FooterLeftTimeImage" type="TextureRect" parent="FooterLeft/FooterLeftTime"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = -48.0
+offset_right = -383.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_skxru")
+
+[node name="FooterLeftTimeData" type="Label" parent="FooterLeft/FooterLeftTime"]
+layout_mode = 0
+offset_left = -477.0
+offset_top = -20.0
+offset_right = -421.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("5_8ftdu")
+theme_override_font_sizes/font_size = 11
+text = "00:00:00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FooterCentre" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FooterCentreRound" type="Control" parent="FooterCentre"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -93.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FooterCentreRoundLeft" type="TextureProgressBar" parent="FooterCentre/FooterCentreRound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -52.5
+offset_right = 52.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("6_1fhm2")
+
+[node name="FooterCentreRoundRight" type="TextureProgressBar" parent="FooterCentre/FooterCentreRound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -52.5
+offset_right = 52.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("7_d2awo")
+
+[node name="FooterCentreRoundLine" type="TextureRect" parent="FooterCentre/FooterCentreRound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -52.5
+offset_right = 10.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_c1qxx")
+
+[node name="FooterCentreAnimation" type="AnimatedSprite2D" parent="FooterCentre/FooterCentreRound"]
+material = SubResource("CanvasItemMaterial_5ek6y")
+sprite_frames = SubResource("SpriteFrames_d5d66")
+autoplay = "default"
+
+[node name="FooterData" type="Control" parent="FooterCentre"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FooterDataLevel" type="Label" parent="FooterCentre/FooterData"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 65.0
+offset_top = -51.0
+offset_right = 90.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FooterDataHP" type="Label" parent="FooterCentre/FooterData"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -28.0
+offset_right = -4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FooterDataMP" type="Label" parent="FooterCentre/FooterData"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -28.0
+offset_right = 90.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FooterRight" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FooterRightVolumeButton" type="TextureButton" parent="FooterRight"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 370.0
+offset_top = -52.5
+offset_right = 392.0
+offset_bottom = -30.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "攻击模式(Ctrl+H)"
+texture_normal = ExtResource("39_tl6pd")
+texture_pressed = ExtResource("40_576l5")
+texture_hover = ExtResource("41_ko48w")
+
+[node name="FooterRightMode" type="Control" parent="FooterRight"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FooterRightModeData" type="Label" parent="FooterRight/FooterRightMode"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = -20.0
+offset_right = 463.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("5_8ftdu")
+theme_override_font_sizes/font_size = 11
+text = "全体模式"
+vertical_alignment = 1
+
+[node name="FooterRightModeButton" type="TextureButton" parent="FooterRight/FooterRightMode"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 370.0
+offset_top = -28.5
+offset_right = 392.0
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "攻击模式(Ctrl+H)"
+texture_normal = ExtResource("42_mnsve")
+texture_pressed = ExtResource("43_5q7my")
+texture_hover = ExtResource("44_br2v5")
+
+[node name="FooterRighTopIcon" type="Control" parent="FooterRight"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = -59.0
+offset_right = 137.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "切换地图(Tab)"
+texture_normal = ExtResource("45_j1mll")
+texture_pressed = ExtResource("46_11hkw")
+texture_hover = ExtResource("47_bbgcx")
+
+[node name="GuildButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 136.0
+offset_top = -59.0
+offset_right = 165.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "行会(G)"
+texture_normal = ExtResource("48_ff3q3")
+texture_pressed = ExtResource("49_g3ddf")
+texture_hover = ExtResource("50_28cb8")
+
+[node name="TransactionButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 164.0
+offset_top = -59.0
+offset_right = 193.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "交易(T)"
+texture_normal = ExtResource("51_ixa48")
+texture_pressed = ExtResource("52_3ovqd")
+texture_hover = ExtResource("53_8xtns")
+
+[node name="TeamButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -59.0
+offset_right = 221.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "队伍"
+texture_normal = ExtResource("54_6dndl")
+texture_pressed = ExtResource("55_0inl1")
+texture_hover = ExtResource("56_lsvyd")
+
+[node name="FriendButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 221.0
+offset_top = -59.0
+offset_right = 250.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "好友"
+texture_normal = ExtResource("57_8tmue")
+texture_pressed = ExtResource("58_7rde3")
+texture_hover = ExtResource("59_cxmmm")
+
+[node name="ChallengeButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = -59.0
+offset_right = 279.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "挑战"
+texture_normal = ExtResource("60_82ghk")
+texture_pressed = ExtResource("61_vtilk")
+texture_hover = ExtResource("62_c1vgr")
+
+[node name="OutRoleButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 296.0
+offset_top = -59.0
+offset_right = 325.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "退出角色"
+texture_normal = ExtResource("63_52lbk")
+texture_pressed = ExtResource("64_lxhx6")
+texture_hover = ExtResource("65_gk236")
+
+[node name="OutGameButton" type="TextureButton" parent="FooterRight/FooterRighTopIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 324.0
+offset_top = -59.0
+offset_right = 353.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "退出游戏"
+texture_normal = ExtResource("66_xf2k6")
+texture_pressed = ExtResource("67_wgiay")
+texture_hover = ExtResource("68_yh2dl")
+
+[node name="FooterRightBottomIcon" type="Control" parent="FooterRight"]
+anchors_preset = 0
+
+[node name="BackpackButton" type="TextureButton" parent="FooterRight/FooterRightBottomIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = -43.0
+offset_right = 140.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "背包(F9)"
+texture_normal = ExtResource("72_7x0ox")
+texture_pressed = ExtResource("73_wnfg3")
+texture_hover = ExtResource("74_7dcld")
+
+[node name="EquipmentButton" type="TextureButton" parent="FooterRight/FooterRightBottomIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = -43.0
+offset_right = 172.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "装备(F10)"
+texture_normal = ExtResource("69_n1wss")
+texture_pressed = ExtResource("70_83fxt")
+texture_hover = ExtResource("71_wk2v6")
+
+[node name="SkillButton" type="TextureButton" parent="FooterRight/FooterRightBottomIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 172.0
+offset_top = -43.0
+offset_right = 204.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "技能"
+texture_normal = ExtResource("75_jk2ib")
+texture_pressed = ExtResource("76_edofu")
+texture_hover = ExtResource("77_yick3")
+
+[node name="AttributeButton" type="TextureButton" parent="FooterRight/FooterRightBottomIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 204.0
+offset_top = -43.0
+offset_right = 236.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "属性"
+texture_normal = ExtResource("78_6hrnc")
+texture_pressed = ExtResource("79_7on2q")
+texture_hover = ExtResource("80_jq866")
+
+[node name="StateButton" type="TextureButton" parent="FooterRight/FooterRightBottomIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 236.0
+offset_top = -43.0
+offset_right = 268.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "状态"
+texture_normal = ExtResource("81_2xkue")
+texture_pressed = ExtResource("82_ut0p6")
+texture_hover = ExtResource("83_c6vhd")
+
+[node name="RankingButton" type="TextureButton" parent="FooterRight/FooterRightBottomIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 268.0
+offset_top = -43.0
+offset_right = 300.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "排行榜(F11)"
+texture_normal = ExtResource("84_iod6c")
+texture_pressed = ExtResource("85_meqoy")
+texture_hover = ExtResource("86_f3krn")
+
+[node name="StoreButton" type="TextureButton" parent="FooterRight/FooterRightBottomIcon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 321.0
+offset_top = -43.0
+offset_right = 353.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "商城"
+texture_normal = ExtResource("87_82766")
+texture_pressed = ExtResource("88_62q1n")
+texture_hover = ExtResource("89_5xnc5")
+
+[node name="FooterBottom" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="FooterBottomWeight" type="TextureProgressBar" parent="FooterBottom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -16.0
+offset_right = -109.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_progress = ExtResource("90_75kvo")
+
+[node name="FooterBottomExperience" type="TextureProgressBar" parent="FooterBottom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -6.5
+offset_right = 352.0
+offset_bottom = -1.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_progress = ExtResource("91_ebtfn")
+
+[connection signal="pressed" from="FooterRight/FooterRighTopIcon/MapButton" to="." method="_on_map_button_pressed"]
+[connection signal="pressed" from="FooterRight/FooterRightBottomIcon/BackpackButton" to="." method="_on_backpack_button_pressed"]
+[connection signal="pressed" from="FooterRight/FooterRightBottomIcon/EquipmentButton" to="." method="_on_equipment_button_pressed"]
+[connection signal="pressed" from="FooterRight/FooterRightBottomIcon/SkillButton" to="." method="_on_skill_button_pressed"]
+[connection signal="pressed" from="FooterRight/FooterRightBottomIcon/AttributeButton" to="." method="_on_attribute_button_pressed"]
+[connection signal="pressed" from="FooterRight/FooterRightBottomIcon/StateButton" to="." method="_on_state_button_pressed"]
+[connection signal="pressed" from="FooterRight/FooterRightBottomIcon/RankingButton" to="." method="_on_ranking_button_pressed"]
+[connection signal="pressed" from="FooterRight/FooterRightBottomIcon/StoreButton" to="." method="_on_store_button_pressed"]

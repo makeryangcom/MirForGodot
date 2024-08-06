@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4qqyr5xqs707"]
+
+[ext_resource type="Script" path="res://scripts/world/monster/monster.gd" id="1_ct814"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c2ppo"]
+height = 20.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_tmyum"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:monster_data")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Monster" type="CharacterBody2D"]
+script = ExtResource("1_ct814")
+
+[node name="MonsterCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_c2ppo")
+
+[node name="MonsterMain" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MultiMonster" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_tmyum")

@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://lsxrw5f30lsm"]
+
+[ext_resource type="Script" path="res://scripts/interface/package/package.gd" id="1_sb1j6"]
+[ext_resource type="Texture2D" uid="uid://4s4j8hfvk0e" path="res://assets/interface/package/package_background.png" id="1_whgsu"]
+[ext_resource type="Texture2D" uid="uid://bv1y2ps3ar3xn" path="res://assets/interface/common/close_button_0.png" id="3_th7h8"]
+[ext_resource type="Texture2D" uid="uid://dajrp5tujblkg" path="res://assets/interface/common/close_button_1.png" id="4_86oo4"]
+[ext_resource type="Texture2D" uid="uid://brfg4bgiicas4" path="res://assets/interface/common/close_button_2.png" id="5_k4x8w"]
+[ext_resource type="FontFile" uid="uid://phimb2o5g3da" path="res://assets/common/font/HarmonyOS_Sans_Black.ttf" id="6_fk0xl"]
+
+[node name="PackageMain" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -563.0
+offset_top = -261.5
+offset_right = -177.0
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sb1j6")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -183.5
+offset_right = 193.0
+offset_bottom = 183.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_whgsu")
+
+[node name="DragButton" type="TextureButton" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -183.5
+offset_right = 193.0
+offset_bottom = 183.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseButton" type="TextureButton" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 26.0
+offset_right = -23.0
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_th7h8")
+texture_pressed = ExtResource("4_86oo4")
+texture_hover = ExtResource("5_k4x8w")
+
+[node name="Footer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="FooterIntegral" type="Label" parent="Footer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -46.0
+offset_right = -53.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_fk0xl")
+theme_override_font_sizes/font_size = 10
+text = "-"
+horizontal_alignment = 2
+
+[node name="FooterBalance" type="Label" parent="Footer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -46.0
+offset_right = 90.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_fk0xl")
+theme_override_font_sizes/font_size = 10
+text = "-"
+horizontal_alignment = 2
+
+[connection signal="button_down" from="Background/DragButton" to="." method="_on_drag_button_button_down"]
+[connection signal="button_up" from="Background/DragButton" to="." method="_on_drag_button_button_up"]
+[connection signal="pressed" from="Background/CloseButton" to="." method="_on_close_button_pressed"]

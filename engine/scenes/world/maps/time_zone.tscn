@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfaisex3l6i08"]
+
+[ext_resource type="Script" path="res://scripts/world/map/time_zone.gd" id="1_sfymv"]
+
+[sub_resource type="Animation" id="Animation_if6nj"]
+resource_name = "default"
+length = 24.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.03333, 5, 7, 8, 9, 11, 14, 17, 19, 20, 21, 22, 24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.0705993, 0.105157, 0.262596, 1), Color(0.12549, 0.172549, 0.4, 1), Color(0.160784, 0.219608, 0.486275, 1), Color(0.435294, 0.533333, 0.878431, 1), Color(0.716873, 0.780173, 0.953887, 1), Color(0.882353, 0.905882, 0.980392, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.882353, 0.905882, 0.980392, 1), Color(0.580029, 0.651479, 0.921356, 1), Color(0.415783, 0.522786, 0.868203, 1), Color(0.277279, 0.364537, 0.732386, 1), Color(0.12549, 0.172549, 0.4, 1), Color(0.0809562, 0.118352, 0.288614, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ij2kp"]
+_data = {
+"default": SubResource("Animation_if6nj")
+}
+
+[node name="TimeZone" type="CanvasModulate"]
+color = Color(0.0705993, 0.105157, 0.262596, 1)
+script = ExtResource("1_sfymv")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ij2kp")
+}

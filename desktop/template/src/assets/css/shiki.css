@@ -1,0 +1,52 @@
+:root {
+    --shiki-foreground: #FFF8;
+    --shiki-color-background: #ffffff;
+    --shiki-token-constant: #ffffff;
+    --shiki-token-string: #ffffff88;
+    --shiki-token-comment: #ffffff88;
+    --shiki-token-keyword: #ffffff88;
+    --shiki-token-parameter: #AA0000;
+    --shiki-token-function: #ffffff;
+    --shiki-token-string-expression: #ebebeb;
+    --shiki-token-punctuation: #ffffff;
+    --shiki-token-link: #EE0000;
+}
+
+.shiki .highlighted-word {
+    border-radius: calc(var(--radius) - 2px);
+    border-color: rgba(63,63,70,.7);
+    background-color: rgba(63,63,70,.5);
+    padding: 0.25rem;
+}
+
+.alert-default{
+    background-color: #f4f4f5;
+    color: #909399;
+}
+.dark .alert-default{
+    background-color: #202121;
+    color: #909399;
+}
+.alert-warning{
+    background-color: #fdf6ec;
+    color: #e6a23c;
+}
+.dark .alert-warning{
+    background-color: #292218;
+    color: #e6a23c;
+}
+.alert-error{
+    background-color: #fef0f0;
+    color: #f56c6c;
+}
+.dark .alert-error{
+    background-color: #2b1d1d;
+    color: #f56c6c;
+}
+
+.drag{
+    -webkit-app-region: drag;
+}
+.no-drag{
+    -webkit-app-region: no-drag;
+}

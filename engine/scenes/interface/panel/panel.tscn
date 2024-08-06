@@ -1,0 +1,342 @@
+[gd_scene load_steps=28 format=3 uid="uid://dnmr3dnb6sud2"]
+
+[ext_resource type="Script" path="res://scripts/interface/panel/panel.gd" id="1_7mmba"]
+[ext_resource type="Texture2D" uid="uid://m8ayino6otwq" path="res://assets/interface/panel/panel_background.png" id="1_fq3jh"]
+[ext_resource type="Texture2D" uid="uid://bv1y2ps3ar3xn" path="res://assets/interface/common/close_button_0.png" id="2_6hlmw"]
+[ext_resource type="Texture2D" uid="uid://dajrp5tujblkg" path="res://assets/interface/common/close_button_1.png" id="3_obsyn"]
+[ext_resource type="Texture2D" uid="uid://brfg4bgiicas4" path="res://assets/interface/common/close_button_2.png" id="4_r4g1u"]
+[ext_resource type="Texture2D" uid="uid://bsfe4mg0v0ijg" path="res://assets/interface/panel/panel_men_background.png" id="5_lxk58"]
+[ext_resource type="Texture2D" uid="uid://0xt3fewm63vv" path="res://assets/interface/panel/panel_women_background.png" id="6_ev33f"]
+[ext_resource type="FontFile" uid="uid://bdqjkns2nmsb7" path="res://assets/common/font/HarmonyOS_Sans_Medium.ttf" id="6_se8hr"]
+[ext_resource type="Texture2D" uid="uid://cbosd8j0qh1au" path="res://assets/interface/panel/tab_1_1.png" id="7_sd0um"]
+[ext_resource type="Texture2D" uid="uid://dcnjwpfoqlk5s" path="res://assets/interface/panel/tab_1_2.png" id="8_6qct4"]
+[ext_resource type="Texture2D" uid="uid://dlwpkxr7hhcpu" path="res://assets/interface/panel/panel_state_background.png" id="8_rdqj2"]
+[ext_resource type="Texture2D" uid="uid://h24o5mctars2" path="res://assets/interface/panel/panel_attribute_background.png" id="9_joqwn"]
+[ext_resource type="Texture2D" uid="uid://bhgtjhxdkc6pu" path="res://assets/interface/panel/tab_1_3.png" id="9_rctg6"]
+[ext_resource type="Texture2D" uid="uid://doqeavvw1mwgx" path="res://assets/interface/panel/tab_2_2.png" id="10_231wf"]
+[ext_resource type="Texture2D" uid="uid://b06pbeomlrpea" path="res://assets/interface/panel/tab_2_1.png" id="10_h2nn6"]
+[ext_resource type="Texture2D" uid="uid://dls35caplbt2h" path="res://assets/interface/panel/panel_title_background.png" id="10_sph6b"]
+[ext_resource type="Texture2D" uid="uid://dt2pqiqr7ueqh" path="res://assets/interface/panel/tab_2_3.png" id="11_d0fv8"]
+[ext_resource type="Texture2D" uid="uid://boxcq6gpgvxk5" path="res://assets/interface/panel/tab_3_1.png" id="12_ohtkc"]
+[ext_resource type="Texture2D" uid="uid://bt60ik7y58ffi" path="res://assets/interface/panel/tab_3_3.png" id="13_bi1mk"]
+[ext_resource type="Texture2D" uid="uid://c0ooa7efp752o" path="res://assets/interface/panel/tab_3_2.png" id="14_d33k4"]
+[ext_resource type="Texture2D" uid="uid://dpxgulostroyd" path="res://assets/interface/panel/tab_4_1.png" id="16_jib22"]
+[ext_resource type="Texture2D" uid="uid://d1nejlnn7oipj" path="res://assets/interface/panel/tab_4_3.png" id="17_tb2be"]
+[ext_resource type="Texture2D" uid="uid://d2dixmaq7pv0u" path="res://assets/interface/panel/tab_4_2.png" id="18_xs2xv"]
+[ext_resource type="Texture2D" uid="uid://chee8eemqledw" path="res://assets/interface/panel/tab_5_1.png" id="19_euilf"]
+[ext_resource type="Texture2D" uid="uid://ceh8ajbdkvlqi" path="res://assets/interface/panel/tab_5_3.png" id="20_u5om4"]
+[ext_resource type="Texture2D" uid="uid://bqsut1v76b17g" path="res://assets/interface/panel/tab_5_2.png" id="21_o3lac"]
+[ext_resource type="Texture2D" uid="uid://b40knjo18tgln" path="res://assets/interface/panel/panel_skill_background.png" id="27_2sv08"]
+
+[node name="PanelMain" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 248.0
+offset_top = -260.0
+offset_right = 584.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7mmba")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -220.0
+offset_right = 168.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fq3jh")
+
+[node name="DragButton" type="TextureButton" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -220.0
+offset_right = 168.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseButton" type="TextureButton" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 27.0
+offset_right = -27.0
+offset_bottom = 49.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_6hlmw")
+texture_pressed = ExtResource("3_obsyn")
+texture_hover = ExtResource("4_r4g1u")
+
+[node name="Nickname" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 62.0
+offset_right = 50.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_se8hr")
+theme_override_font_sizes/font_size = 11
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabBox" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="EquipTabButton" type="TextureButton" parent="TabBox"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 84.0
+offset_right = -68.0
+offset_bottom = 109.0
+toggle_mode = true
+texture_normal = ExtResource("7_sd0um")
+texture_pressed = ExtResource("9_rctg6")
+texture_hover = ExtResource("8_6qct4")
+
+[node name="StateTabButton" type="TextureButton" parent="TabBox"]
+layout_mode = 0
+offset_left = -68.0
+offset_top = 84.0
+offset_right = -16.0
+offset_bottom = 109.0
+toggle_mode = true
+texture_normal = ExtResource("10_h2nn6")
+texture_pressed = ExtResource("11_d0fv8")
+texture_hover = ExtResource("10_231wf")
+
+[node name="AttributeTabButton" type="TextureButton" parent="TabBox"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 84.0
+offset_right = 36.0
+offset_bottom = 109.0
+toggle_mode = true
+texture_normal = ExtResource("12_ohtkc")
+texture_pressed = ExtResource("13_bi1mk")
+texture_hover = ExtResource("14_d33k4")
+
+[node name="TitleTabButton" type="TextureButton" parent="TabBox"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 84.0
+offset_right = 88.0
+offset_bottom = 109.0
+toggle_mode = true
+texture_normal = ExtResource("16_jib22")
+texture_pressed = ExtResource("17_tb2be")
+texture_hover = ExtResource("18_xs2xv")
+
+[node name="SkillTabButton" type="TextureButton" parent="TabBox"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 84.0
+offset_right = 140.0
+offset_bottom = 109.0
+toggle_mode = true
+texture_normal = ExtResource("19_euilf")
+texture_pressed = ExtResource("20_u5om4")
+texture_hover = ExtResource("21_o3lac")
+
+[node name="EquipBox" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenBackground" type="TextureRect" parent="EquipBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -108.5
+offset_right = 144.0
+offset_bottom = 202.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_lxk58")
+
+[node name="WomenBackground" type="TextureRect" parent="EquipBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -108.5
+offset_right = 144.0
+offset_bottom = 202.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ev33f")
+
+[node name="StateBox" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="StateBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -105.5
+offset_right = 144.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_rdqj2")
+
+[node name="AttributeBox" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="AttributeBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -105.5
+offset_right = 144.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_joqwn")
+
+[node name="TitleBox" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="TitleBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -105.5
+offset_right = 144.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_sph6b")
+
+[node name="SkillBox" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="SkillBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -105.5
+offset_right = 144.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_2sv08")
+
+[connection signal="button_down" from="Background/DragButton" to="." method="_on_drag_button_button_down"]
+[connection signal="button_up" from="Background/DragButton" to="." method="_on_drag_button_button_up"]
+[connection signal="pressed" from="Background/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="TabBox/EquipTabButton" to="." method="_on_tab_button_pressed" binds= ["equip"]]
+[connection signal="pressed" from="TabBox/StateTabButton" to="." method="_on_tab_button_pressed" binds= ["state"]]
+[connection signal="pressed" from="TabBox/AttributeTabButton" to="." method="_on_tab_button_pressed" binds= ["attribute"]]
+[connection signal="pressed" from="TabBox/TitleTabButton" to="." method="_on_tab_button_pressed" binds= ["title"]]
+[connection signal="pressed" from="TabBox/SkillTabButton" to="." method="_on_tab_button_pressed" binds= ["skill"]]

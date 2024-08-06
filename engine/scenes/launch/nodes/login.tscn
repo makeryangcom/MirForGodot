@@ -1,0 +1,675 @@
+[gd_scene load_steps=24 format=3 uid="uid://buarwy7fi7x80"]
+
+[ext_resource type="Texture2D" uid="uid://bvtluhvung6l4" path="res://assets/launch/nodes/login/logo.png" id="1_cmpia"]
+[ext_resource type="Script" path="res://scripts/launch/login/login.gd" id="1_givbr"]
+[ext_resource type="AudioStream" uid="uid://dboukgib28chm" path="res://assets/common/music/button_pressed.wav" id="2_lsdxn"]
+[ext_resource type="Texture2D" uid="uid://do7u3mlkr3pk5" path="res://assets/launch/nodes/login/default_background.png" id="3_koyl2"]
+[ext_resource type="FontFile" uid="uid://sk3ot7ejjfpl" path="res://assets/common/font/HarmonyOS_Sans_Bold.ttf" id="4_xor7y"]
+[ext_resource type="Texture2D" uid="uid://c8j2xr6eqkrjo" path="res://assets/launch/nodes/login/submit_button_0.png" id="6_3il2r"]
+[ext_resource type="Texture2D" uid="uid://bbur8hysi834g" path="res://assets/launch/nodes/login/submit_button_1.png" id="7_0a3fl"]
+[ext_resource type="Texture2D" uid="uid://m6haqbyqtd35" path="res://assets/launch/nodes/login/submit_button_2.png" id="8_ye8q2"]
+[ext_resource type="Texture2D" uid="uid://bxbpnc8a3jvdg" path="res://assets/launch/nodes/login/register_button_0.png" id="9_7tpen"]
+[ext_resource type="Texture2D" uid="uid://cakc3yqsry8ql" path="res://assets/launch/nodes/login/register_button_1.png" id="10_df72p"]
+[ext_resource type="Texture2D" uid="uid://y13socpx3cyu" path="res://assets/launch/nodes/login/register_button_2.png" id="11_nrpk5"]
+[ext_resource type="Texture2D" uid="uid://dg73nhlnibc84" path="res://assets/launch/nodes/login/change_password_button_0.png" id="12_8x5tx"]
+[ext_resource type="Texture2D" uid="uid://d2eqfew6vtidb" path="res://assets/launch/nodes/login/change_password_button_1.png" id="13_dvi2h"]
+[ext_resource type="Texture2D" uid="uid://cswv1n4n641si" path="res://assets/launch/nodes/login/change_password_button_2.png" id="14_33a3k"]
+[ext_resource type="Texture2D" uid="uid://7f3o7q6qmuwr" path="res://assets/launch/nodes/login/register_background.png" id="14_ll26o"]
+[ext_resource type="Texture2D" uid="uid://b7y0vllkup21p" path="res://assets/launch/nodes/login/confirm_button_0.png" id="15_qiw6x"]
+[ext_resource type="Texture2D" uid="uid://b3be301dix1un" path="res://assets/launch/nodes/login/confirm_button_1.png" id="16_6p3g0"]
+[ext_resource type="Texture2D" uid="uid://b14whubcd0ywg" path="res://assets/launch/nodes/login/confirm_button_2.png" id="17_4ywhn"]
+[ext_resource type="Texture2D" uid="uid://bsqyivtbdjwq5" path="res://assets/launch/nodes/login/cancel_button_0.png" id="18_mvevm"]
+[ext_resource type="Texture2D" uid="uid://bmdncyyiokpka" path="res://assets/launch/nodes/login/cancel_button_1.png" id="19_sk8p6"]
+[ext_resource type="Texture2D" uid="uid://vnlslvdahiit" path="res://assets/launch/nodes/login/cancel_button_2.png" id="20_5achb"]
+[ext_resource type="Texture2D" uid="uid://cr0llkjfkv2mo" path="res://assets/launch/nodes/login/change_background.png" id="22_ep7lj"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7f21g"]
+color = Color(0, 0, 0, 0)
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_givbr")
+
+[node name="ButtonPressedMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lsdxn")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -308.5
+offset_right = 201.0
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cmpia")
+
+[node name="Default" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 175.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Default"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -127.5
+offset_right = 281.0
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_koyl2")
+
+[node name="DefaultEmail" type="LineEdit" parent="Default"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -82.0
+offset_right = 104.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入登录邮箱"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="DefaultPassword" type="LineEdit" parent="Default"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -33.0
+offset_right = 105.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+secret = true
+secret_character = "*"
+
+[node name="DefaultSubmit" type="TextureButton" parent="Default"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = 15.0
+offset_right = 110.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_3il2r")
+texture_pressed = ExtResource("7_0a3fl")
+texture_hover = ExtResource("8_ye8q2")
+texture_disabled = ExtResource("6_3il2r")
+
+[node name="DefaultRegister" type="TextureButton" parent="Default"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = 81.5
+offset_right = -23.0
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_7tpen")
+texture_pressed = ExtResource("10_df72p")
+texture_hover = ExtResource("11_nrpk5")
+texture_disabled = ExtResource("9_7tpen")
+
+[node name="DefaultChange" type="TextureButton" parent="Default"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 79.5
+offset_right = 142.0
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("12_8x5tx")
+texture_pressed = ExtResource("13_dvi2h")
+texture_hover = ExtResource("14_33a3k")
+texture_disabled = ExtResource("12_8x5tx")
+
+[node name="Register" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.5
+offset_top = -191.5
+offset_right = 281.5
+offset_bottom = 191.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_ll26o")
+
+[node name="RegisterEmail" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -132.0
+offset_right = 12.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入登录邮箱"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterCode" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -102.0
+offset_right = -54.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "验证码"
+max_length = 6
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterCodeLabel" type="Label" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -100.0
+offset_right = 10.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.621524, 0.621524, 0.621524, 1)
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 11
+text = "获取验证码"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RegisterCodeSubmit" type="TextureButton" parent="Register/RegisterCodeLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.496
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.264
+offset_top = -13.5
+offset_right = 31.5
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RegisterCodeTimer" type="Timer" parent="Register/RegisterCodeLabel"]
+wait_time = 60.0
+one_shot = true
+
+[node name="RegisterPassword" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -72.0
+offset_right = 12.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+secret = true
+secret_character = "*"
+
+[node name="RegisterName" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -29.0
+offset_right = 11.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入真实姓名"
+max_length = 6
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterNumber" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 1.0
+offset_right = 11.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入身份证号码"
+max_length = 18
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterQuestionA" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 53.0
+offset_right = 11.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入问题一"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterAnswerA" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 83.0
+offset_right = 11.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入答案一"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterQuestionB" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 113.0
+offset_right = 11.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入问题二"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterAnswerB" type="LineEdit" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = 143.0
+offset_right = 11.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入答案二"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="RegisterConfirmSubmit" type="TextureButton" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 142.0
+offset_right = 104.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_qiw6x")
+texture_pressed = ExtResource("16_6p3g0")
+texture_hover = ExtResource("17_4ywhn")
+texture_disabled = ExtResource("15_qiw6x")
+
+[node name="RegisterCancelSubmit" type="TextureButton" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 181.0
+offset_top = 142.0
+offset_right = 265.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("18_mvevm")
+texture_pressed = ExtResource("19_sk8p6")
+texture_hover = ExtResource("20_5achb")
+texture_disabled = ExtResource("18_mvevm")
+
+[node name="Change" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -124.5
+offset_right = 185.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_ep7lj")
+
+[node name="ChangeEmail" type="LineEdit" parent="Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -65.0
+offset_right = 137.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入登录邮箱"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="ChangePassword" type="LineEdit" parent="Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -35.0
+offset_right = 137.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+secret = true
+secret_character = "*"
+
+[node name="ChangeNewPassword" type="LineEdit" parent="Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -5.0
+offset_right = 137.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请输入新的登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+secret = true
+secret_character = "*"
+
+[node name="ChangeConfirmPassword" type="LineEdit" parent="Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = 25.0
+offset_right = 137.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xor7y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_7f21g")
+placeholder_text = "请确认新的登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+secret = true
+secret_character = "*"
+
+[node name="ChangeConfirmSubmit" type="TextureButton" parent="Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = 64.0
+offset_right = 37.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_qiw6x")
+texture_pressed = ExtResource("16_6p3g0")
+texture_hover = ExtResource("17_4ywhn")
+texture_disabled = ExtResource("15_qiw6x")
+
+[node name="ChangeCancelSubmit" type="TextureButton" parent="Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 137.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("18_mvevm")
+texture_pressed = ExtResource("19_sk8p6")
+texture_hover = ExtResource("20_5achb")
+texture_disabled = ExtResource("18_mvevm")
+
+[connection signal="text_submitted" from="Default/DefaultPassword" to="." method="_on_default_password_text_submitted"]
+[connection signal="pressed" from="Default/DefaultSubmit" to="." method="_on_default_submit_pressed"]
+[connection signal="pressed" from="Default/DefaultRegister" to="." method="_on_default_register_pressed"]
+[connection signal="pressed" from="Default/DefaultChange" to="." method="_on_default_change_pressed"]
+[connection signal="pressed" from="Register/RegisterCodeLabel/RegisterCodeSubmit" to="." method="_on_register_code_submit_pressed"]
+[connection signal="timeout" from="Register/RegisterCodeLabel/RegisterCodeTimer" to="." method="_on_register_code_timer_timeout"]
+[connection signal="pressed" from="Register/RegisterConfirmSubmit" to="." method="_on_register_confirm_submit_pressed"]
+[connection signal="pressed" from="Register/RegisterCancelSubmit" to="." method="_on_register_cancel_submit_pressed"]
+[connection signal="pressed" from="Change/ChangeConfirmSubmit" to="." method="_on_change_confirm_submit_pressed"]
+[connection signal="pressed" from="Change/ChangeCancelSubmit" to="." method="_on_change_cancel_submit_pressed"]

@@ -1,38 +1,40 @@
 {
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
     "compilerOptions": {
         "target": "ESNext",
         "useDefineForClassFields": true,
         "module": "ESNext",
-        "moduleResolution": "node",
+        "moduleResolution": "Node",
         "strict": true,
         "jsx": "preserve",
-        "sourceMap": false,
         "resolveJsonModule": true,
         "isolatedModules": true,
         "esModuleInterop": true,
+        "declaration": false,
+        "skipLibCheck": true,
+        "sourceMap": false,
+        "noEmit": true,
         "lib": [
             "ESNext",
             "DOM"
         ],
-        "types": [
-            "node"
-        ],
-        "skipLibCheck": true,
+        "types": ["unplugin-icons/types/vue", "node", "vue", "@radix-icons/vue"],
         "paths": {
-            "@/*": [
-                "./src/*"
-            ]
+            "@/lib/*": ["./src/packages/shadcn/*"],
+            "@/lib/registry/new-york/ui/*": ["./src/packages/shadcn/*"],
+            "@/lib/registry/default/ui/*": ["./src/packages/shadcn/*"],
         }
     },
     "include": [
         "src/**/*.ts",
         "src/**/*.d.ts",
         "src/**/*.tsx",
-        "src/**/*.vue"
+        "src/**/*.vue",
+        "src/packages/shadcn/**/*.vue",
+        "../tools/script/preload/**/*.ts"
     ],
-    "references": [
-        {
-            "path": "./tsconfig.node.json"
-        }
+    "exclude": [
+        "node_modules",
+        "src/**/*.ts"
     ]
 }

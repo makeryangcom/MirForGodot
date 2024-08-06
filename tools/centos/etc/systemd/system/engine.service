@@ -1,0 +1,13 @@
+[Unit]
+Description=Engine
+After=syslog.target network.target
+
+[Service]
+Type=simple
+Environment=GODOT_SILENCE_ROOT_WARNING=1
+WorkingDirectory=/data/wwwroot/engine/
+ExecStart=/data/wwwroot/engine/engine.x86_64 --headless
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://chm6pv6pk735s"]
+
+[ext_resource type="Texture2D" uid="uid://crx2h62tpxlx3" path="res://assets/interface/left_bottom/chat_background.png" id="1_5ylo4"]
+[ext_resource type="Script" path="res://scripts/interface/chat/chat.gd" id="1_e45gj"]
+[ext_resource type="Texture2D" uid="uid://dtug2y7vy1kb1" path="res://assets/interface/left_bottom/input_background.png" id="2_ib2ff"]
+[ext_resource type="FontFile" uid="uid://sk3ot7ejjfpl" path="res://assets/common/font/HarmonyOS_Sans_Bold.ttf" id="3_ryrma"]
+[ext_resource type="Texture2D" uid="uid://c68mofgrsxwx7" path="res://assets/interface/left_bottom/right_button_0.png" id="4_t7w1q"]
+[ext_resource type="Texture2D" uid="uid://b66lbdgti2xv" path="res://assets/interface/left_bottom/right_button_2.png" id="5_m6g8k"]
+[ext_resource type="Texture2D" uid="uid://dn2865b1nqu3c" path="res://assets/interface/left_bottom/right_button_1.png" id="6_2hq7j"]
+[ext_resource type="Texture2D" uid="uid://cgbt2qal67g2k" path="res://assets/interface/left_bottom/left_button_0.png" id="7_vl08r"]
+[ext_resource type="Texture2D" uid="uid://c8k7f3wqre6ys" path="res://assets/interface/left_bottom/left_button_2.png" id="8_v7qsi"]
+[ext_resource type="Texture2D" uid="uid://du1to6n5fpbok" path="res://assets/interface/left_bottom/left_button_1.png" id="9_b47bl"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_udxdh"]
+color = Color(0, 0, 0, 0)
+
+[node name="ChatMain" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("1_e45gj")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -284.0
+offset_right = 325.0
+offset_bottom = -79.0
+grow_vertical = 0
+texture = ExtResource("1_5ylo4")
+
+[node name="ChatInputBox" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -110.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="ChatInputBox"]
+layout_mode = 0
+offset_right = 324.0
+offset_bottom = 30.0
+texture = ExtResource("2_ib2ff")
+
+[node name="ChatInput" type="LineEdit" parent="ChatInputBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ryrma")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_udxdh")
+placeholder_text = "想说点什么？"
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+flat = true
+caret_blink = true
+
+[node name="ChatShowButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 326.0
+offset_top = -282.0
+offset_right = 344.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_t7w1q")
+texture_pressed = ExtResource("5_m6g8k")
+texture_hover = ExtResource("6_2hq7j")
+
+[node name="ChatHideButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 326.0
+offset_top = -282.0
+offset_right = 344.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_vl08r")
+texture_pressed = ExtResource("8_v7qsi")
+texture_hover = ExtResource("9_b47bl")
+
+[connection signal="pressed" from="ChatShowButton" to="." method="_on_chat_show_button_pressed"]
+[connection signal="pressed" from="ChatHideButton" to="." method="_on_chat_hide_button_pressed"]

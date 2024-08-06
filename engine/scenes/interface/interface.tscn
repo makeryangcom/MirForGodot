@@ -1,0 +1,190 @@
+[gd_scene load_steps=21 format=3 uid="uid://k87h5s7f7ufd"]
+
+[ext_resource type="Script" path="res://scripts/interface/interface.gd" id="1_p1pjn"]
+[ext_resource type="AudioStream" uid="uid://c6dbn5mi6jrbd" path="res://assets/common/music/interface_button_pressed_max.wav" id="2_k8bgu"]
+[ext_resource type="Shader" path="res://assets/shader/death_display.gdshader" id="2_un1p3"]
+[ext_resource type="Texture2D" uid="uid://dhibm6jqenc0l" path="res://assets/world/map/weather/rain/bloom.png" id="3_7le1i"]
+[ext_resource type="PackedScene" uid="uid://mdc0m23n7dli" path="res://scenes/interface/dashboard/dashboard.tscn" id="3_tq5d7"]
+[ext_resource type="Texture2D" uid="uid://cdyfdkua2bomm" path="res://assets/world/map/weather/rain/raindrop.png" id="3_vwptc"]
+[ext_resource type="Shader" path="res://assets/shader/weather/cloud.gdshader" id="5_q36m5"]
+[ext_resource type="PackedScene" uid="uid://lsxrw5f30lsm" path="res://scenes/interface/package/package.tscn" id="6_a3j8g"]
+[ext_resource type="PackedScene" uid="uid://cgdsuskoj408f" path="res://scenes/interface/store/store.tscn" id="7_0arwn"]
+[ext_resource type="PackedScene" uid="uid://dnmr3dnb6sud2" path="res://scenes/interface/panel/panel.tscn" id="8_gwu3t"]
+[ext_resource type="PackedScene" uid="uid://lfl17nii2bj0" path="res://scenes/interface/map/max.tscn" id="10_gq2ki"]
+[ext_resource type="PackedScene" uid="uid://dqalsjq3hjg1a" path="res://scenes/interface/map/min.tscn" id="93_8fmsk"]
+[ext_resource type="PackedScene" uid="uid://chm6pv6pk735s" path="res://scenes/interface/chat/chat.tscn" id="94_exvp1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ujplc"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ho5d"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 360, 1)
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_js23k"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.2
+scale_max = 0.8
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f3138"]
+frequency = 0.0075
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bu07m"]
+width = 1280
+height = 720
+invert = true
+seamless = true
+seamless_blend_skirt = 1.0
+bump_strength = 12.9
+noise = SubResource("FastNoiseLite_f3138")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wo2tg"]
+shader = ExtResource("5_q36m5")
+shader_parameter/density = 0.775
+shader_parameter/speed = Vector2(0.02, 0.01)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bu07m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12wga"]
+shader = ExtResource("2_un1p3")
+
+[node name="Interface" type="CanvasLayer"]
+script = ExtResource("1_p1pjn")
+
+[node name="ButtonPressedMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k8bgu")
+
+[node name="Weather" type="Node2D" parent="."]
+
+[node name="Rain" type="Node2D" parent="Weather"]
+visible = false
+
+[node name="RainBloom" type="GPUParticles2D" parent="Weather/Rain"]
+material = SubResource("CanvasItemMaterial_ujplc")
+position = Vector2(640, 360)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_4ho5d")
+texture = ExtResource("3_7le1i")
+lifetime = 0.6
+visibility_rect = Rect2(200, 0, 400, 400)
+
+[node name="RainDrop" type="GPUParticles2D" parent="Weather/Rain"]
+position = Vector2(640, 0)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_js23k")
+texture = ExtResource("3_vwptc")
+lifetime = 5.0
+visibility_rect = Rect2(-200, 0, 400, 400)
+
+[node name="Snow" type="Node2D" parent="Weather"]
+visible = false
+
+[node name="SnowBloom" type="GPUParticles2D" parent="Weather/Snow"]
+material = SubResource("CanvasItemMaterial_ujplc")
+position = Vector2(640, 360)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_4ho5d")
+texture = ExtResource("3_7le1i")
+lifetime = 0.6
+visibility_rect = Rect2(200, 0, 400, 400)
+
+[node name="SnowDrop" type="GPUParticles2D" parent="Weather/Snow"]
+position = Vector2(640, 0)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_js23k")
+texture = ExtResource("3_vwptc")
+lifetime = 5.0
+visibility_rect = Rect2(-200, 0, 400, 400)
+
+[node name="Wind" type="Node2D" parent="Weather"]
+visible = false
+
+[node name="Cloud" type="Node2D" parent="Weather"]
+visible = false
+
+[node name="CloudColorRect" type="ColorRect" parent="Weather/Cloud"]
+material = SubResource("ShaderMaterial_wo2tg")
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="DeathDisplay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_12wga")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.77084, 0.770839, 0.770839, 1)
+
+[node name="FooterMiddle" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DashboardMain" parent="FooterMiddle" instance=ExtResource("3_tq5d7")]
+layout_mode = 1
+
+[node name="TopRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="MinMap" parent="TopRight" instance=ExtResource("93_8fmsk")]
+layout_mode = 1
+
+[node name="LeftBottom" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="ChatMain" parent="LeftBottom" instance=ExtResource("94_exvp1")]
+layout_mode = 1
+
+[node name="Popup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PackageMain" parent="Popup" instance=ExtResource("6_a3j8g")]
+layout_mode = 1
+
+[node name="PanelMain" parent="Popup" instance=ExtResource("8_gwu3t")]
+layout_mode = 1
+
+[node name="StoreMain" parent="Popup" instance=ExtResource("7_0arwn")]
+layout_mode = 1
+
+[node name="MaxMain" parent="Popup" instance=ExtResource("10_gq2ki")]
+layout_mode = 1
+
+[connection signal="on_click_signal" from="FooterMiddle/DashboardMain" to="." method="_on_popup_on_click_signal"]
+[connection signal="on_click_signal" from="TopRight/MinMap" to="." method="_on_popup_on_click_signal"]
+[connection signal="on_click_signal" from="Popup/PackageMain" to="." method="_on_popup_on_click_signal"]
+[connection signal="on_click_signal" from="Popup/PanelMain" to="." method="_on_popup_on_click_signal"]
+[connection signal="on_click_signal" from="Popup/StoreMain" to="." method="_on_popup_on_click_signal"]
+[connection signal="on_click_signal" from="Popup/MaxMain" to="." method="_on_popup_on_click_signal"]
