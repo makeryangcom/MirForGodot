@@ -37,12 +37,12 @@ func SendMail(to string, subject string, content string) bool {
 	status := true
 
 	mail := gomail.NewMessage()
-	mail.SetHeader("From", mail.FormatAddress("makeryangcom@foxmail.com", "MakerYang"))
+	mail.SetHeader("From", mail.FormatAddress("123456789@foxmail.com", "MakerYang"))
 	mail.SetHeader("To", to)
 	mail.SetHeader("Subject", subject)
 	mail.SetBody("text/html", content)
 
-	send := gomail.NewDialer("smtp.qq.com", 587, "makeryangcom@foxmail.com", "xwaacdrftozsbjgc")
+	send := gomail.NewDialer("smtp.qq.com", 587, "123456789@foxmail.com", "123456789")
 	if err := send.DialAndSend(mail); err != nil {
 		status = false
 	}
